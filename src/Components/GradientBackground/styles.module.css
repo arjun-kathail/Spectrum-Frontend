@@ -24,7 +24,7 @@
     width: var(--size);
     height: var(--size);
     filter: blur(calc(var(--size) / 5));
-    background-image: linear-gradient(#FE0944, #FEAE96);
+    background-image: linear-gradient(#37eba9, #5b37eb);
     animation: rotate var(--speed) var(--easing) alternate infinite;
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
     position: absolute;
@@ -48,7 +48,7 @@
 }
 
 .body {
-    background-color: #222;
+    background-color: #000;
     position: absolute;
     inset: 0;
     height: 100%;
@@ -68,7 +68,7 @@
 
     .gradient1,
     .gradient2 {
-        --size: 650px;
+        --size: 600px;
     }
 
     .gradient1 {
