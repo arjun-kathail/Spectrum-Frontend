@@ -1,0 +1,83 @@
+/* .gradient {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    background-image: url('../../assets/gradients/dark1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.gradient1 {
+    --size: 450px;
+    --speed: 30s;
+    --easing: cubic-bezier(0.8, 0.2, 0.2, 0.8);
+    width: var(--size);
+    height: var(--size);
+    filter: blur(calc(var(--size) / 5));
+    background-image: linear-gradient(#FE0944, #FEAE96);
+    animation: rotate var(--speed) var(--easing) alternate infinite;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    position: absolute;
+    top: 50px;
+    left: 10px;
+}
+
+.gradient2 {
+    --size: 450px;
+    --speed: 30s;
+    --easing: cubic-bezier(0.8, 0.2, 0.2, 0.8);
+    width: var(--size);
+    height: var(--size);
+    filter: blur(calc(var(--size) / 5));
+    background-image: linear-gradient(#FEAE96, #FE0944);
+    animation: rotate var(--speed) var(--easing) alternate infinite;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    position: absolute;
+    right: 10px;
+    bottom: 50px;
+}
+
+.body {
+    background-color: #222;
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* This is just to transition when you change the viewport size. */
+.wrapper {
+    transition: all 0.25s ease-out;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+@media (min-width: 720px) {
+
+    .gradient1,
+    .gradient2 {
+        --size: 650px;
+    }
+
+    .gradient1 {
+        top: 25px;
+        left: 50px;
+    }
+
+    .gradient2 {
+        right: 50px;
+        bottom: 25px;
+    }
+}
