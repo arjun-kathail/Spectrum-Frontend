@@ -34,7 +34,7 @@
 
 .gradient2 {
     --size: 450px;
-    --speed: 30s;
+    --speed: 15s;
     --easing: cubic-bezier(0.8, 0.2, 0.2, 0.8);
     width: var(--size);
     height: var(--size);
@@ -68,7 +68,7 @@
 
     .gradient1,
     .gradient2 {
-        --size: 600px;
+        --size: 700px;
     }
 
     .gradient1 {
