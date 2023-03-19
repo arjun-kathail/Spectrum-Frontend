@@ -23,6 +23,7 @@ const GoogleLoginButton = () => {
                     })
                     .then((res) => {
                         setProfile(res.data);
+                        localStorage.setItem("userObject", JSON.stringify(res.data));
                     })
                     .catch((err) => console.log(err));
             }
