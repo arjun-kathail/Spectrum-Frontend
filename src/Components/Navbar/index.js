@@ -12,6 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import SpectrumLogo from '../../assets/logos/spectrum_white.png';
+import GoogleLoginButton from '../GoogleLogin';
 
 const pages = ['Team', 'Developers', 'Contact Us'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -119,6 +120,7 @@ function NavBar() {
                             ))}
                         </Menu>
                     </Box>
+                    <GoogleLoginButton/>
                 </Toolbar>
             </Container>
         </AppBar>
