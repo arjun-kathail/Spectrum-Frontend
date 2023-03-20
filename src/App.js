@@ -4,6 +4,7 @@ import Landing from './Landing';
 import NavBar from './Components/Navbar'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+// import EventRegisterForm from './Components/EventRegister';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import userContext from "./Context/userContext";
 
@@ -23,6 +24,7 @@ function App() {
     <ThemeProvider theme={darkTheme}>
     <CssBaseline />
     <NavBar />
+    {/* <EventRegisterForm /> */}
     <Landing />
     </ThemeProvider>
     </React.StrictMode>
