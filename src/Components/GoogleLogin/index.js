@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { googleLogout, useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
+import GoogleLogo from '../../assets/logos/google_icon.png';
 
 const GoogleLoginButton = () => {
     const [ user, setUser ] = useState([]);
@@ -34,14 +35,21 @@ const GoogleLoginButton = () => {
     const logOut = () => {
         googleLogout();
         setProfile(null);
+        localStorage.removeItem("userObject");
     };
 
     return (
         <div>
             {profile ? (
-                <button onClick={logOut}>Log out</button>
+                <button style={{ display: "flex", justifyContent: "center", alignItems: "center", cursor: "pointer" }} onClick={() => logOut()}>
+                    <img src={GoogleLogo} style={{ width: "30px", height: "30px" }} alt="image not found"></img>
+                    &nbsp;Logout
+                </button>
             ) : (
-                <button onClick={() => login()}>Sign in with Google</button>
+                <button style={{ display: "flex", justifyContent: "center", alignItems: "center", cursor: "pointer" }} onClick={() => login()}>
+                    <img src={GoogleLogo} style={{ width: "30px", height: "30px" }} alt="image not found"></img>
+                    &nbsp;Login
+                </button>
             )}
         </div>
     );
