@@ -1,32 +1,33 @@
-import React, { useState, createContext, useEffect } from "react";
+/* eslint-disable react/prop-types */
+import React, { useState, createContext, useEffect } from 'react';
 
 export const userContext = createContext();
 
 export const UserProvider = (props) => {
-    const [user, setUser] = useState(null);
-    const [isReady, setIsReady] = useState(false);
+  const [user, setUser] = useState(null);
+  const [isReady, setIsReady] = useState(false);
 
-    const loadFromLocalStorage = () => {
-        try {
-            const serializedState = localStorage.getItem("userObject");
-            if (serializedState == null) return undefined;
-            return JSON.parse(serializedState);
-        } catch (err) {
-            return null;
-        }
-    };
+  const loadFromLocalStorage = () => {
+    try {
+      const serializedState = localStorage.getItem('userObject');
+      if (serializedState == null) return undefined;
+      return JSON.parse(serializedState);
+    } catch (err) {
+      return null;
+    }
+  };
 
-    useEffect(() => {
-        const state = loadFromLocalStorage();
-        setUser(state);
-        setIsReady(true);
-    }, []);
+  useEffect(() => {
+    const state = loadFromLocalStorage();
+    setUser(state);
+    setIsReady(true);
+  }, []);
 
-    return (
-        <userContext.Provider value={[user, setUser]}>
-            {isReady ? props.children : null}
-        </userContext.Provider>
-    );
+  return (
+    <userContext.Provider value={[user, setUser]}>
+      {isReady ? props.children : null}
+    </userContext.Provider>
+  );
 };
 
 export default userContext;
