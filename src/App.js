@@ -15,14 +15,13 @@ const darkTheme = createTheme({
 
 function App() {
   const [user] = useContext(userContext);
-  console.log(user);
 
   return (
     <GoogleOAuthProvider clientId='794358287288-hdchp559q23p7piav6qlnj1dsml2pvnn.apps.googleusercontent.com'>
       <React.StrictMode>
         <ThemeProvider theme={darkTheme}>
           <CssBaseline />
-          <NavBar />
+          <NavBar user={user} />
           <Landing />
         </ThemeProvider>
       </React.StrictMode>
