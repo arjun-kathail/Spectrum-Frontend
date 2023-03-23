@@ -1,16 +1,33 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable */
+import React, { useState, useEffect, forwardRef, useImperativeHandle } from 'react';
 import { googleLogout, useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 import GoogleLogo from '../../assets/logos/google_icon.png';
 
-const GoogleLoginButton = () => {
+const GoogleLoginButton = forwardRef((props, ref) => {
   const [user, setUser] = useState([]);
   const [profile, setProfile] = useState([]);
+
+  useImperativeHandle(ref, () => ({
+    logOut() {
+      googleLogout();
+      setProfile(null);
+      localStorage.removeItem('userObject');
+      props.handleUserLogout();
+    },
+  }));
 
   const login = useGoogleLogin({
     onSuccess: (codeResponse) => setUser(codeResponse),
     onError: (error) => console.log('Login Failed:', error),
   });
+
+  const handleLogOut = () => {
+    googleLogout();
+    setProfile(null);
+    localStorage.removeItem('userObject');
+    props.handleUserLogout();
+  };
 
   useEffect(() => {
     if (user) {
@@ -24,16 +41,12 @@ const GoogleLoginButton = () => {
         .then((res) => {
           setProfile(res.data);
           localStorage.setItem('userObject', JSON.stringify(res.data));
+          props.handleUserLogin();
         })
         .catch((err) => console.log(err));
     }
   }, [user]);
 
-  const logOut = () => {
-    googleLogout();
-    setProfile(null);
-    localStorage.removeItem('userObject');
-  };
 
   return (
     <div>
@@ -45,7 +58,7 @@ const GoogleLoginButton = () => {
             alignItems: 'center',
             cursor: 'pointer',
           }}
-          onClick={() => logOut()}
+          onClick={() => handleLogOut()}
         >
           <img
             src={GoogleLogo}
@@ -74,5 +87,5 @@ const GoogleLoginButton = () => {
       )}
     </div>
   );
-};
+});
 export default GoogleLoginButton;

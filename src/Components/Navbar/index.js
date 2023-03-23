@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react';
+// import { useRef } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -21,6 +22,8 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 function NavBar(props) {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+    // const googleLoginButtonChildRef = useRef(null);
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -119,8 +122,8 @@ function NavBar(props) {
                             </Button>
                         ))}
                     </Box>
-
-                    <Box sx={{ flexGrow: 0 }}>
+                    {props.user ?
+                    (<Box sx={{ flexGrow: 0 }}>
                         <Tooltip title='Open settings'>
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                 <Avatar alt='Remy Sharp' src={props?.user?.picture || "https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/0025/1559/brand.gif?itok=vXujPldk"} />
@@ -150,8 +153,8 @@ function NavBar(props) {
                                 </MenuItem>
                             ))}
                         </Menu>
-                    </Box>
-                    <GoogleLoginButton />
+                    </Box>) : null}
+                    <GoogleLoginButton handleUserLogin={props.handleUserLogin} handleUserLogout={props.handleUserLogout} />
                 </Toolbar>
             </Container>
         </AppBar>
