@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react';
-// import { useRef } from 'react';
+import { useRef } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -17,13 +17,15 @@ import SpectrumLogo from '../../assets/logos/spectrum_white.png';
 import GoogleLoginButton from '../GoogleLogin';
 
 const pages = ['Team', 'Developers', 'Contact Us'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function NavBar(props) {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-    // const googleLoginButtonChildRef = useRef(null);
+    const googleLoginButtonChildRef = useRef();
+
+    var userProfilePicture = "https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/0025/1559/brand.gif?itok=vXujPldk";
+    if(props.user && props.user.picture) userProfilePicture = props.user.picture;
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -39,6 +41,11 @@ function NavBar(props) {
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
     };
+
+    const handleUserLogout = () => {
+        googleLoginButtonChildRef.current.logOut();
+        handleCloseUserMenu();
+    }
 
     return (
         <AppBar
@@ -126,7 +133,7 @@ function NavBar(props) {
                     (<Box sx={{ flexGrow: 0 }}>
                         <Tooltip title='Open settings'>
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt='Remy Sharp' src={props?.user?.picture || "https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/0025/1559/brand.gif?itok=vXujPldk"} />
+                                <Avatar alt='Remy Sharp' src={userProfilePicture} />
                             </IconButton>
                         </Tooltip>
                         <Menu
@@ -145,16 +152,13 @@ function NavBar(props) {
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}
                         >
-                            {settings.map((setting) => (
-                                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                    <Typography textAlign='center' fontFamily='Ubuntu'>
-                                        {setting}
-                                    </Typography>
-                                </MenuItem>
-                            ))}
+                        <MenuItem onClick={handleCloseUserMenu}>Profile</MenuItem>
+                        <MenuItem onClick={handleCloseUserMenu}>Account</MenuItem>
+                        <MenuItem onClick={handleCloseUserMenu}>Dashboard</MenuItem>
+                        <MenuItem onClick={handleUserLogout}>Logout</MenuItem>
                         </Menu>
                     </Box>) : null}
-                    <GoogleLoginButton handleUserLogin={props.handleUserLogin} handleUserLogout={props.handleUserLogout} />
+                    <GoogleLoginButton ref={googleLoginButtonChildRef} handleUserLogin={props.handleUserLogin} handleUserLogout={props.handleUserLogout} user={props.user} />
                 </Toolbar>
             </Container>
         </AppBar>

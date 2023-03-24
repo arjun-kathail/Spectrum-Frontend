@@ -19,7 +19,7 @@ function App() {
 
   const handleUserLogin = () => {
     const serializedState = localStorage.getItem('userObject');
-    setUser(serializedState);
+    setUser(JSON.parse(serializedState));
   };
   
   const handleUserLogout = () => {

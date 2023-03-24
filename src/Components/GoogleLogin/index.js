@@ -22,13 +22,6 @@ const GoogleLoginButton = forwardRef((props, ref) => {
     onError: (error) => console.log('Login Failed:', error),
   });
 
-  const handleLogOut = () => {
-    googleLogout();
-    setProfile(null);
-    localStorage.removeItem('userObject');
-    props.handleUserLogout();
-  };
-
   useEffect(() => {
     if (user) {
       axios
@@ -50,24 +43,7 @@ const GoogleLoginButton = forwardRef((props, ref) => {
 
   return (
     <div>
-      {profile ? (
-        <button
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            cursor: 'pointer',
-          }}
-          onClick={() => handleLogOut()}
-        >
-          <img
-            src={GoogleLogo}
-            style={{ width: '30px', height: '30px' }}
-            alt='image not found'
-          ></img>
-          &nbsp;Logout
-        </button>
-      ) : (
+      {profile && props.user ? null : (
         <button
           style={{
             display: 'flex',
