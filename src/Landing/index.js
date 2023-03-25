@@ -1,16 +1,19 @@
+/* eslint-disable react/prop-types */
 import { React, useState } from 'react';
 import { Button } from '@mui/material';
+import { ToastContainer, toast } from 'react-toastify';
 import GradientBackground from '../Components/GradientBackground';
 import ParticlesBackground from '../Components/ParticlesBackground';
 import SpectrumWhite from '../assets/logos/spectrum_white.png';
 import ApcLogo from '../assets/logos/apc_logo_white.png';
-import PecLogo from '../assets/logos/pec_100_years_logo_transparent_white.png';
+import PecLogo from '../assets/logos/pec_logo_since_1921.png';
 import PainterIllustration from '../assets/Illustrations/4.svg';
 import MonsterIllustration from '../assets/Illustrations/5.svg';
 import EventRegisterForm from '../Components/EventRegister';
+import 'react-toastify/dist/ReactToastify.css';
 import styles from './styles.module.css';
 
-function Landing() {
+function Landing(props) {
   const [isFormOpen, setIsFormOpen] = useState(false);
 
   return (
@@ -18,12 +21,41 @@ function Landing() {
       <GradientBackground>
         <ParticlesBackground />
         <div className={styles.content}>
-          <img alt='spectrum logo' src={SpectrumWhite} className={styles.spectrumLogo} />
-          <div className={styles.presentedBy}>PRESENTED BY</div>
           <div className={styles.logos}>
             <img alt='apc logo' src={ApcLogo} />
+            <div className={styles.logoSeperation}></div>
             <img alt='pec logo' src={PecLogo} />
           </div>
+          <div className={styles.presentedBy}>PRESENTS</div>
+          <img alt='spectrum logo' src={SpectrumWhite} className={styles.spectrumLogo} />
+          <Button
+            variant='contained'
+            sx={{
+              color: '#fff',
+              background: '#A420D0',
+              '&:hover': { background: '#A420D0' },
+              display: 'block',
+              margin: 'auto',
+            }}
+            onClick={() => {
+              if (props.user) setIsFormOpen(true);
+              else toast('Kindly Login');
+            }}
+          >
+            Register
+          </Button>
+          <style>
+            {`
+            .Toastify__toast-body {
+              paddingTop: 0;
+              paddingBottom: 0;
+            }
+          `}
+          </style>
+          <ToastContainer theme='dark' position='bottom-right' />
+          {isFormOpen && (
+            <EventRegisterForm isFormOpen={isFormOpen} setIsFormOpen={setIsFormOpen} />
+          )}
           <div className={styles.aboutUs}>
             <div className={styles.aboutUsQuote}>
               {
@@ -46,15 +78,6 @@ function Landing() {
               }
             </div>
           </div>
-          <Button
-            variant='outlined'
-            onClick={() => {
-              setIsFormOpen(true);
-            }}
-          >
-            Open form dialog
-          </Button>
-          <EventRegisterForm isFormOpen={isFormOpen} setIsFormOpen={setIsFormOpen} />
         </div>
       </GradientBackground>
     </div>

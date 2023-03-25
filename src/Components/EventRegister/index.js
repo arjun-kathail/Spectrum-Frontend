@@ -216,7 +216,7 @@ class EventRegisterForm extends Component {
                     required
                     fullWidth
                     id='participantCollegeId'
-                    label='College Student ID'
+                    label='Roll No.'
                     autoFocus
                     onChange={(e) => this.handleEventChange(e)}
                     value={this.state.participantCollegeId}
@@ -237,24 +237,29 @@ class EventRegisterForm extends Component {
                     }
                   />
                 </Grid>
-                {this.state.tricityResident ? (
-                  <Grid item xs={6} sm={6}>
-                    <FormControlLabel
-                      label='Accomodation Required'
-                      control={
-                        <Checkbox
-                          checked={this.state.tricityResident && this.state.stayRequired}
-                          onChange={(e) => this.handleAccomodationCheckChange(e)}
-                        />
-                      }
-                    />
-                  </Grid>
-                ) : (
-                  <></>
-                )}
+                <Grid item xs={6} sm={6}>
+                  <FormControlLabel
+                    label='Accomodation Required'
+                    control={
+                      <Checkbox
+                        checked={this.state.stayRequired}
+                        onChange={(e) => this.handleAccomodationCheckChange(e)}
+                      />
+                    }
+                  />
+                </Grid>
                 <Grid item xs={12} sm={12}>
-                  <Button fullWidth variant='contained' type='submit' color='warning'>
-                    <TelegramIcon /> Submit Registration Details
+                  <Button
+                    fullWidth
+                    variant='contained'
+                    type='submit'
+                    sx={{
+                      color: '#fff',
+                      backgroundColor: '#A420D0',
+                      '&:hover': { background: '#A420D0' },
+                    }}
+                  >
+                    Submit <TelegramIcon />
                   </Button>
                 </Grid>
               </Grid>

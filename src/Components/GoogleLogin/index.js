@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React, { useState, useEffect, forwardRef, useImperativeHandle } from 'react';
+import { Button } from '@mui/material';
 import { googleLogout, useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 import GoogleLogo from '../../assets/logos/google_icon.png';
@@ -40,26 +41,22 @@ const GoogleLoginButton = forwardRef((props, ref) => {
     }
   }, [user]);
 
-
   return (
     <div>
       {profile && props.user ? null : (
-        <button
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            cursor: 'pointer',
+        <Button
+          variant='contained'
+          sx={{
+            color: '#fff',
+            background: '#A420D0',
+            '&:hover': { background: '#A420D0' },
+            fontSize: '0.9rem',
           }}
           onClick={() => login()}
         >
-          <img
-            src={GoogleLogo}
-            style={{ width: '30px', height: '30px' }}
-            alt='image not found'
-          ></img>
-          &nbsp;Login
-        </button>
+          <img src={GoogleLogo} alt='Google Logo' style={{ height: '0.9rem' }} />
+          &nbsp; Login
+        </Button>
       )}
     </div>
   );

@@ -13,17 +13,18 @@
 }
 
 .spectrumLogo {
-  width: 70%;
+  width: 60%;
   display: block;
   margin: auto;
-  padding-top: 27vh;
+  padding-top: 3vh;
+  margin-bottom: 3rem;
 }
 
 .presentedBy {
   text-align: center;
-  padding-top: 8vh;
+  padding-top: 3vh;
   font-weight: 600;
-  font-size: 2rem;
+  font-size: 1.5rem;
   /* background: -webkit-linear-gradient(0deg, #50C9C3 0%, #96DEDA 100%);
     -webkit-background-clip: text;
     background-clip: text;
@@ -34,19 +35,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 5vh;
+  padding-top: 23vh;
+}
+
+.logoSeperation {
+  height: 10vh;
+  width: 0.2rem;
+  background-color: #fff;
+  border-radius: 0.2rem;
 }
 
 .logos img {
-  width: 14%;
-  margin-left: 4rem;
-  margin-right: 4rem;
+  height: 10vh;
+  margin-left: 1.3rem;
+  margin-right: 1rem;
 }
 
 .aboutUs {
   width: 90%;
   margin: auto;
-  margin-top: 7rem;
+  margin-top: 25vh;
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
   background-color: rgba(17, 25, 40, 0.75);
@@ -124,23 +132,24 @@
 @media (max-width: 600px) {
   .spectrumLogo {
     width: 85%;
-    padding-top: 50vh;
-    padding-bottom: 50vh;
+    padding-top: 1.5rem;
   }
 
   .presentedBy {
-    font-size: 1.8rem;
-    padding-top: 0;
+    font-size: 1.2rem;
+    padding-top: 1.5rem;
   }
 
   .logos {
-    padding-top: 3rem;
-    flex-direction: column;
+    padding-top: 35vh;
+  }
+
+  .logoSeperation {
+    height: 5vh;
   }
 
   .logos img {
-    padding-bottom: 5rem;
-    width: 50%;
+    height: 5vh;
   }
 
   .aboutUsSpectrum {
@@ -155,6 +164,10 @@
   .illustrations img {
     padding-top: 5rem;
     height: 14rem;
+  }
+
+  .aboutUs {
+    margin-top: 40vh;
   }
 
   .aboutUsContent {
