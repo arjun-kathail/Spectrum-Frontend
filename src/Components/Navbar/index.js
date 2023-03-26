@@ -61,7 +61,7 @@ function NavBar() {
             }}
             enableColorOnDark
         >
-            <Container maxWidth='x1'>
+            <Container maxWidth='lg'>
                 <Toolbar disableGutters>
                     <Box
                         component='img'
@@ -112,9 +112,24 @@ function NavBar() {
                         component='img'
                         alt='Spectrum Logo'
                         src={SpectrumLogo}
-                        sx={{ height: '1.2rem', display: { xs: 'flex', md: 'none' }, mr: 3 }}
+                        sx={{ height: '1.2rem', display: { xs: 'flex', md: 'none' } }}
                     />
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, ml: 1 }}>
+                    <Typography
+                    variant="h5"
+                    noWrap
+                    component="a"
+                    href=""
+                    sx={{
+                    display: { xs: "flex", md: "none" },
+                    flexGrow: 0.88,
+                    fontFamily: "monospace",
+                    fontWeight: 700,
+                    letterSpacing: ".3rem",
+                    color: "inherit",
+                    textDecoration: "none"
+                        }}
+                    ></Typography>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: "space-evenly", ml: 1 }}>
                         {pages.map((page) => (
                             <Button
                                 key={page}
