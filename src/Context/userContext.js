@@ -9,7 +9,7 @@ export const UserProvider = (props) => {
 
   const loadFromLocalStorage = () => {
     try {
-      const serializedState = localStorage.getItem('userObject');
+      const serializedState = localStorage.getItem('spectrumUser');
       if (serializedState == null) return undefined;
       return JSON.parse(serializedState);
     } catch (err) {

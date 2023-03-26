@@ -15,10 +15,13 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import SpectrumLogo from '../../assets/logos/spectrum_white.png';
 import GoogleLoginButton from '../GoogleLogin';
+import userContext from '../../Context/userContext';
 
 const pages = ['Team', 'Developers', 'Contact Us'];
 
-function NavBar(props) {
+function NavBar() {
+
+    const [user] = React.useContext(userContext);
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -26,7 +29,7 @@ function NavBar(props) {
 
     var userProfilePicture =
         'https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/0025/1559/brand.gif?itok=vXujPldk';
-    if (props.user && props.user.picture) userProfilePicture = props.user.picture;
+    if (user?.picture) userProfilePicture = user.picture;
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -131,7 +134,7 @@ function NavBar(props) {
                             </Button>
                         ))}
                     </Box>
-                    {props.user ? (
+                    {user ? (
                         <Box sx={{ flexGrow: 0 }}>
                             <Tooltip title='Open settings'>
                                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -160,9 +163,6 @@ function NavBar(props) {
                     ) : null}
                     <GoogleLoginButton
                         ref={googleLoginButtonChildRef}
-                        handleUserLogin={props.handleUserLogin}
-                        handleUserLogout={props.handleUserLogout}
-                        user={props.user}
                     />
                 </Toolbar>
             </Container>

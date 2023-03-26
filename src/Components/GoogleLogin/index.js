@@ -1,20 +1,19 @@
 /* eslint-disable */
-import React, { useState, useEffect, forwardRef, useImperativeHandle } from 'react';
+import React, { useEffect, useContext, forwardRef, useImperativeHandle } from 'react';
+import userContext from '../../Context/userContext';
 import { Button } from '@mui/material';
 import { googleLogout, useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 import GoogleLogo from '../../assets/logos/google_icon.png';
 
 const GoogleLoginButton = forwardRef((props, ref) => {
-  const [user, setUser] = useState([]);
-  const [profile, setProfile] = useState([]);
+  const [user, setUser] = useContext(userContext);
 
   useImperativeHandle(ref, () => ({
     logOut() {
       googleLogout();
-      setProfile(null);
-      localStorage.removeItem('userObject');
-      props.handleUserLogout();
+      localStorage.removeItem('spectrumUser');
+      setUser(undefined);
     },
   }));
 
@@ -33,9 +32,8 @@ const GoogleLoginButton = forwardRef((props, ref) => {
           },
         })
         .then((res) => {
-          setProfile(res.data);
-          localStorage.setItem('userObject', JSON.stringify(res.data));
-          props.handleUserLogin();
+          localStorage.setItem('spectrumUser', JSON.stringify(res.data));
+          setUser(res.data);
         })
         .catch((err) => console.log(err));
     }
@@ -43,7 +41,7 @@ const GoogleLoginButton = forwardRef((props, ref) => {
 
   return (
     <div>
-      {profile && props.user ? null : (
+      {user ? null : (
         <Button
           variant='contained'
           sx={{

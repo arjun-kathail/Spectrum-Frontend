@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { React, useState } from 'react';
+import { React, useState, useContext } from 'react';
 import { Button } from '@mui/material';
 import { ToastContainer, toast } from 'react-toastify';
 import GradientBackground from '../Components/GradientBackground';
@@ -12,10 +12,12 @@ import MonsterIllustration from '../assets/Illustrations/5.svg';
 import EventRegisterForm from '../Components/EventRegister';
 import date from 'date-and-time';
 import 'react-toastify/dist/ReactToastify.css';
+import userContext from '../Context/userContext';
 import styles from './styles.module.css';
 
-function Landing(props) {
+function Landing() {
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [user] = useContext(userContext);
 
   const getDaysLeft = () => {
     const eventDate = date.parse('29 04 2023 03:30:00 AM', 'DD MM YYYY hh:mm:ss A', true);
@@ -52,7 +54,7 @@ function Landing(props) {
               fontWeight: '600'
             }}
             onClick={() => {
-              if (props.user) setIsFormOpen(true);
+              if (user) setIsFormOpen(true);
               else toast('You must login first');
             }}
           >
