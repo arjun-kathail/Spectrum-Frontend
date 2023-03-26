@@ -50,11 +50,11 @@ const GoogleLoginButton = forwardRef((props, ref) => {
             color: '#fff',
             background: '#A420D0',
             '&:hover': { background: '#A420D0' },
-            fontSize: '0.9rem',
+            fontSize: '1rem',
           }}
           onClick={() => login()}
         >
-          <img src={GoogleLogo} alt='Google Logo' style={{ height: '0.9rem' }} />
+          <img src={GoogleLogo} alt='Google Logo' style={{ height: '1rem' }} />
           &nbsp; Login
         </Button>
       )}

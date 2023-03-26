@@ -10,6 +10,9 @@ import { GoogleOAuthProvider } from '@react-oauth/google';
 const darkTheme = createTheme({
   typography: {
     fontFamily: 'Ubuntu',
+    button: {
+      textTransform: 'none'
+    }
   },
   palette: {
     mode: 'dark',

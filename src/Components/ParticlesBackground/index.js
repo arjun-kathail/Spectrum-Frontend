@@ -74,6 +74,7 @@ function ParticlesBackground() {
               enable: true,
               area: 800,
             },
+            limit: 75,
             value: 50,
           },
           opacity: {

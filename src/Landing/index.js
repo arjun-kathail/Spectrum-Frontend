@@ -10,11 +10,22 @@ import PecLogo from '../assets/logos/pec_logo_since_1921.png';
 import PainterIllustration from '../assets/Illustrations/4.svg';
 import MonsterIllustration from '../assets/Illustrations/5.svg';
 import EventRegisterForm from '../Components/EventRegister';
+import date from 'date-and-time';
 import 'react-toastify/dist/ReactToastify.css';
 import styles from './styles.module.css';
 
 function Landing(props) {
   const [isFormOpen, setIsFormOpen] = useState(false);
+
+  const getDaysLeft = () => {
+    const eventDate = date.parse('29 04 2023 03:30:00 AM', 'DD MM YYYY hh:mm:ss A', true);
+    const now = new Date();
+    const days = Math.floor(date.subtract(eventDate, now).toDays());
+    const hours = Math.floor(date.subtract(eventDate, now).toHours());
+    if (days > 0) return days + ' days to go';
+    else if (days === 0 && hours > 0) return hours + ' hours to go';
+    else return 'Event is live';
+  }
 
   return (
     <div className={styles.wrapper}>
@@ -26,8 +37,9 @@ function Landing(props) {
             <div className={styles.logoSeperation}></div>
             <img alt='pec logo' src={PecLogo} />
           </div>
-          <div className={styles.presentedBy}>PRESENTS</div>
+          {/* <div className={styles.presentedBy}>PRESENTS</div> */}
           <img alt='spectrum logo' src={SpectrumWhite} className={styles.spectrumLogo} />
+          <div className={styles.banner}><div className={styles.eventDates}>29 - 30 April, 2023</div><div className={styles.daysLeft}>{getDaysLeft()}</div></div>
           <Button
             variant='contained'
             sx={{
@@ -36,13 +48,15 @@ function Landing(props) {
               '&:hover': { background: '#A420D0' },
               display: 'block',
               margin: 'auto',
+              fontSize: '1.1rem',
+              fontWeight: '600'
             }}
             onClick={() => {
               if (props.user) setIsFormOpen(true);
-              else toast('Kindly Login');
+              else toast('You must login first');
             }}
           >
-            Register
+            Register Now
           </Button>
           <style>
             {`
