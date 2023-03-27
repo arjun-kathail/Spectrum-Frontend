@@ -10,8 +10,8 @@ const darkTheme = createTheme({
   typography: {
     fontFamily: 'Ubuntu',
     button: {
-      textTransform: 'none'
-    }
+      textTransform: 'none',
+    },
   },
   palette: {
     mode: 'dark',
@@ -19,7 +19,6 @@ const darkTheme = createTheme({
 });
 
 function App() {
-
   return (
     // eslint-disable-next-line no-undef
     <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_OAUTH_CLIENT_ID}>

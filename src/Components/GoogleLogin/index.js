@@ -1,10 +1,12 @@
 /* eslint-disable */
 import React, { useEffect, useContext, forwardRef, useImperativeHandle } from 'react';
+import { toast } from 'react-toastify';
 import userContext from '../../Context/userContext';
 import { Button } from '@mui/material';
 import { googleLogout, useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
 import GoogleLogo from '../../assets/logos/google_icon.png';
+import 'react-toastify/dist/ReactToastify.css';
 
 const GoogleLoginButton = forwardRef((props, ref) => {
   const [user, setUser] = useContext(userContext);
@@ -23,7 +25,7 @@ const GoogleLoginButton = forwardRef((props, ref) => {
   });
 
   useEffect(() => {
-    if (user) {
+    if (user?.access_token) {
       axios
         .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
           headers: {
@@ -32,10 +34,37 @@ const GoogleLoginButton = forwardRef((props, ref) => {
           },
         })
         .then((res) => {
-          localStorage.setItem('spectrumUser', JSON.stringify(res.data));
-          setUser(res.data);
+          axios
+            .post(
+              `${process.env.REACT_APP_BACKEND_API}user/login/`,
+              {
+                email: res.data.email,
+              },
+              {
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+              },
+            )
+            .then((backendRes) => {
+              localStorage.setItem(
+                'spectrumUser',
+                JSON.stringify({ ...res.data, ...backendRes.data }),
+              );
+              setUser({ ...res.data, ...backendRes.data });
+              toast('Log in successful');
+              console.log({ ...res.data, ...backendRes.data });
+            })
+            .catch((err) => {
+              console.log(err);
+              toast('Login attempt failed');
+              setUser(undefined);
+            });
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          toast('Login attempt failed');
+          setUser(undefined);
+        });
     }
   }, [user]);
 

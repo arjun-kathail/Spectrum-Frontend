@@ -73,7 +73,7 @@
 
   10%,
   100% {
-    opacity: .7;
+    opacity: 0.7;
   }
 }
 
@@ -98,7 +98,6 @@
 }
 
 @keyframes datesPlanned {
-
   0%,
   55%,
   100% {

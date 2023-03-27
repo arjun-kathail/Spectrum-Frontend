@@ -25,6 +25,7 @@ class EventRegisterForm extends Component {
       participantPhoneNumber: '',
       participantCollegeName: '',
       participantCollegeId: '',
+      participantDriveLink: '',
       tricityResident: false,
       stayRequired: false,
       errors: {
@@ -57,28 +58,33 @@ class EventRegisterForm extends Component {
       participantPhoneNumber,
       participantCollegeName,
       participantCollegeId,
+      participantDriveLink,
     } = data;
     let participantNameError = '',
       participantAgeError = '',
       participantPhoneNumberError = '',
       participantCollegeNameError = '',
       participantCollegeIdError = '',
+      participantDriveLinkError = '',
       error = false;
 
     if (!participantName || !participantName.trim()) {
-      participantNameError = 'Name must be entered.';
+      participantNameError = 'Name must be entered';
       error = true;
     } else if (!participantAge || participantAge <= 0 || participantAge >= 40) {
-      participantAgeError = 'Age is required in valid format.';
+      participantAgeError = 'Age is required in valid format';
       error = true;
     } else if (!participantPhoneNumber || !participantPhoneNumber.trim()) {
       participantPhoneNumberError = 'Phone Number is required in valid format';
       error = true;
     } else if (!participantCollegeName || !participantCollegeName.trim()) {
-      participantCollegeNameError = 'College Name must be entered.';
+      participantCollegeNameError = 'College Name must be entered';
       error = true;
     } else if (!participantCollegeId || !participantCollegeId.trim()) {
-      participantCollegeIdError = 'College ID must be entered.';
+      participantCollegeIdError = 'College ID must be entered';
+      error = true;
+    } else if (!participantDriveLink || !participantDriveLink.trim()) {
+      participantDriveLinkError = 'Google Drive link must be entered';
       error = true;
     }
 
@@ -89,6 +95,7 @@ class EventRegisterForm extends Component {
         participantPhoneNumber: participantPhoneNumberError,
         participantCollegeName: participantCollegeNameError,
         participantCollegeId: participantCollegeIdError,
+        participantDriveLink: participantDriveLinkError,
       },
     }));
 
@@ -175,6 +182,20 @@ class EventRegisterForm extends Component {
                   />
                   <div className={styles.invalid__feedback}>{this.state.errors.participantAge}</div>
                 </Grid>
+                {this.props.email && (
+                  <Grid item xs={12} sm={12}>
+                    <TextField
+                      name='participantEmail'
+                      type={'text'}
+                      fullWidth
+                      id='participantEmail'
+                      label='Email'
+                      disabled
+                      autoFocus
+                      value={this.props.email}
+                    />
+                  </Grid>
+                )}
                 <Grid item xs={12} sm={12}>
                   <TextField
                     name='participantCollegeName'
@@ -190,6 +211,23 @@ class EventRegisterForm extends Component {
                   />
                   <div className={styles.invalid__feedback}>
                     {this.state.errors.participantCollegeName}
+                  </div>
+                </Grid>
+                <Grid item xs={12} sm={12}>
+                  <TextField
+                    name='participantDriveLink'
+                    type={'text'}
+                    required
+                    fullWidth
+                    id='participantDriveLink'
+                    label='Google Drive link'
+                    autoFocus
+                    onChange={(e) => this.handleEventChange(e)}
+                    value={this.state.participantDriveLink}
+                    inputProps={{ maxLength: 100 }}
+                  />
+                  <div className={styles.invalid__feedback}>
+                    {this.state.errors.participantDriveLink}
                   </div>
                 </Grid>
                 <Grid item xs={6} sm={6}>

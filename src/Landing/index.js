@@ -27,7 +27,7 @@ function Landing() {
     if (days > 0) return days + ' days to go';
     else if (days === 0 && hours > 0) return hours + ' hours to go';
     else return 'Event is live';
-  }
+  };
 
   return (
     <div className={styles.wrapper}>
@@ -41,7 +41,10 @@ function Landing() {
           </div>
           {/* <div className={styles.presentedBy}>PRESENTS</div> */}
           <img alt='spectrum logo' src={SpectrumWhite} className={styles.spectrumLogo} />
-          <div className={styles.banner}><div className={styles.eventDates}>29 - 30 April, 2023</div><div className={styles.daysLeft}>{getDaysLeft()}</div></div>
+          <div className={styles.banner}>
+            <div className={styles.eventDates}>29 - 30 April, 2023</div>
+            <div className={styles.daysLeft}>{getDaysLeft()}</div>
+          </div>
           <Button
             variant='contained'
             sx={{
@@ -51,7 +54,7 @@ function Landing() {
               display: 'block',
               margin: 'auto',
               fontSize: '1.1rem',
-              fontWeight: '600'
+              fontWeight: '600',
             }}
             onClick={() => {
               if (user) setIsFormOpen(true);
@@ -69,8 +72,12 @@ function Landing() {
           `}
           </style>
           <ToastContainer theme='dark' position='bottom-right' />
-          {isFormOpen && (
-            <EventRegisterForm isFormOpen={isFormOpen} setIsFormOpen={setIsFormOpen} />
+          {user && isFormOpen && (
+            <EventRegisterForm
+              isFormOpen={isFormOpen}
+              setIsFormOpen={setIsFormOpen}
+              email={user.email}
+            />
           )}
           <div className={styles.aboutUs}>
             <div className={styles.aboutUsQuote}>
