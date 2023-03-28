@@ -44,49 +44,62 @@ const GoogleLoginButton = forwardRef((props, ref) => {
 
   useEffect(() => {
     if (user?.access_token) {
-      toast.promise(
-        axios
-          .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
-            headers: {
-              Authorization: `Bearer ${user.access_token}`,
-              Accept: 'application/json',
-            },
-          })
-          .then((res) => {
-            axios
-              .post(
-                `${process.env.REACT_APP_BACKEND_API}user/login/`,
-                {
-                  email: res.data.email,
+      const id = toast.loading('Registration in progress');
+      axios
+        .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
+          headers: {
+            Authorization: `Bearer ${user.access_token}`,
+            Accept: 'application/json',
+          },
+        })
+        .then((res) => {
+          axios
+            .post(
+              `${process.env.REACT_APP_BACKEND_API}user/login/`,
+              {
+                email: res.data.email,
+              },
+              {
+                headers: {
+                  'Content-Type': 'application/json',
                 },
-                {
-                  headers: {
-                    'Content-Type': 'application/json',
-                  },
-                },
-              )
-              .then((backendRes) => {
-                localStorage.setItem(
-                  'spectrumUser',
-                  JSON.stringify({ ...res.data, ...backendRes.data }),
-                );
-                setUser({ ...res.data, ...backendRes.data });
-              })
-              .catch((err) => {
-                setUser(undefined);
-                throw err;
+              },
+            )
+            .then((backendRes) => {
+              localStorage.setItem(
+                'spectrumUser',
+                JSON.stringify({ ...res.data, ...backendRes.data }),
+              );
+              setUser({ ...res.data, ...backendRes.data });
+              toast.update(id, {
+                render: 'Login Successful',
+                type: 'success',
+                isLoading: false,
+                autoClose: 2000,
+                closeOnClick: true,
               });
-          })
-          .catch((err) => {
-            setUser(undefined);
-            throw err;
-          }),
-        {
-          pending: 'Logging In',
-          success: 'Login Successful',
-          error: 'Login Failed',
-        },
-      );
+            })
+            .catch(() => {
+              setUser(undefined);
+              toast.update(id, {
+                render: 'Login failed',
+                type: 'error',
+                isLoading: false,
+                autoClose: 2000,
+                closeOnClick: true,
+              });
+            });
+        })
+        .catch(() => {
+          setUser(undefined);
+          toast.update(id, {
+            render: 'Login failed',
+            type: 'error',
+            isLoading: false,
+            autoClose: 2000,
+            closeOnClick: true,
+          });
+        });
     }
   }, [user]);
 
