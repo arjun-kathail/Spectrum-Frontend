@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { React, useState, useContext } from 'react';
+import { React, useState, useEffect, useContext } from 'react';
 import { Button } from '@mui/material';
 import { ToastContainer, toast } from 'react-toastify';
 import GradientBackground from '../Components/GradientBackground';
@@ -13,11 +13,67 @@ import EventRegisterForm from '../Components/EventRegister';
 import date from 'date-and-time';
 import 'react-toastify/dist/ReactToastify.css';
 import userContext from '../Context/userContext';
+import axios from 'axios';
 import styles from './styles.module.css';
 
 function Landing() {
   const [isFormOpen, setIsFormOpen] = useState(false);
-  const [user] = useContext(userContext);
+  const [user, setUser] = useContext(userContext);
+  const [formData, setFormData] = useState(null);
+
+  useEffect(() => {
+    if (user?.token && formData) {
+      const id = toast.loading('Registration in progress');
+      axios
+        .post(
+          // eslint-disable-next-line no-undef
+          `${process.env.REACT_APP_BACKEND_API}user/details/`,
+          formData,
+          {
+            headers: {
+              Authorization: `Token ${user.token}`,
+              'Content-Type': 'application/json',
+            },
+          },
+        )
+        .then((res) => {
+          setUser({ ...user, ...res.data });
+          localStorage.setItem('spectrumUser', JSON.stringify({ ...user, ...res.data }));
+          setFormData(null);
+          toast.update(id, {
+            render: 'Registration Successful',
+            type: 'success',
+            isLoading: false,
+            autoClose: 2000,
+            closeOnClick: true,
+          });
+        })
+        .catch((err) => {
+          if (err.response.status == 401) {
+            localStorage.removeItem('spectrumUser');
+            setUser(undefined);
+            setFormData(null);
+            toast.update(id, {
+              render: 'Login again',
+              type: 'error',
+              isLoading: false,
+              autoClose: 2000,
+              closeOnClick: true,
+            });
+          } else {
+            toast.update(id, {
+              render: `${Object.keys(err.response.data).reduce(function (res, v) {
+                return `${res} ${err.response.data[v]}`;
+              }, '')}`,
+              type: 'error',
+              isLoading: false,
+              autoClose: 2000,
+              closeOnClick: true,
+            });
+          }
+        });
+    }
+  }, [formData]);
 
   const getDaysLeft = () => {
     const eventDate = date.parse('29 04 2023 03:30:00 AM', 'DD MM YYYY hh:mm:ss A', true);
@@ -47,21 +103,27 @@ function Landing() {
           </div>
           <Button
             variant='contained'
+            disableRipple={user?.user_rounds.registered_round_one}
             sx={{
               color: '#fff',
-              background: '#A420D0',
-              '&:hover': { background: '#A420D0' },
+              background: user?.user_rounds.registered_round_one
+                ? '#A420D0'
+                : 'rgba(255, 255, 255, 0)',
+              '&:hover': { background: '#A420D0', border: '', color: '#fff' },
               display: 'block',
               margin: 'auto',
               fontSize: '1.1rem',
               fontWeight: '600',
+              border: user?.user_rounds.registered_round_one ? '' : '3px solid #A420D0',
+              cursor: user?.user_rounds.registered_round_one ? 'default' : 'pointer',
             }}
             onClick={() => {
-              if (user) setIsFormOpen(true);
-              else toast('You must login first');
+              if (user) {
+                if (!user.user_rounds.registered_round_one) setIsFormOpen(true);
+              } else toast.error('You must login first');
             }}
           >
-            Register Now
+            {user?.user_rounds.registered_round_one ? 'Registered' : 'Register Now'}
           </Button>
           <style>
             {`
@@ -71,12 +133,13 @@ function Landing() {
             }
           `}
           </style>
-          <ToastContainer theme='dark' position='bottom-right' />
+          <ToastContainer theme='dark' position='bottom-right' autoClose={2000} />
           {user && isFormOpen && (
             <EventRegisterForm
               isFormOpen={isFormOpen}
               setIsFormOpen={setIsFormOpen}
               email={user.email}
+              setFormData={setFormData}
             />
           )}
           <div className={styles.aboutUs}>

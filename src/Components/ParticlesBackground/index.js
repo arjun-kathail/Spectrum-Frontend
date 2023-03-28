@@ -5,7 +5,6 @@ import styles from './styles.module.css';
 
 function ParticlesBackground() {
   const particlesInit = useCallback(async (engine) => {
-    console.log(engine);
     await loadFull(engine);
   }, []);
   return (

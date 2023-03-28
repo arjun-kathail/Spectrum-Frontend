@@ -13,58 +13,79 @@ const GoogleLoginButton = forwardRef((props, ref) => {
 
   useImperativeHandle(ref, () => ({
     logOut() {
-      googleLogout();
-      localStorage.removeItem('spectrumUser');
-      setUser(undefined);
+      axios
+        .post(
+          `${process.env.REACT_APP_BACKEND_API}user/logout/`,
+          {},
+          {
+            headers: {
+              Authorization: `Token ${user.token}`,
+              'Content-Type': 'application/json',
+            },
+          },
+        )
+        .then((res) => {
+          localStorage.removeItem('spectrumUser');
+          setUser(undefined);
+          googleLogout();
+        })
+        .catch(() => {
+          localStorage.removeItem('spectrumUser');
+          setUser(undefined);
+          googleLogout();
+        });
     },
   }));
 
   const login = useGoogleLogin({
     onSuccess: (codeResponse) => setUser(codeResponse),
-    onError: (error) => console.log('Login Failed:', error),
+    onError: (error) => toast('Login Failed'),
   });
 
   useEffect(() => {
     if (user?.access_token) {
-      axios
-        .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
-          headers: {
-            Authorization: `Bearer ${user.access_token}`,
-            Accept: 'application/json',
-          },
-        })
-        .then((res) => {
-          axios
-            .post(
-              `${process.env.REACT_APP_BACKEND_API}user/login/`,
-              {
-                email: res.data.email,
-              },
-              {
-                headers: {
-                  'Content-Type': 'application/json',
+      toast.promise(
+        axios
+          .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
+            headers: {
+              Authorization: `Bearer ${user.access_token}`,
+              Accept: 'application/json',
+            },
+          })
+          .then((res) => {
+            axios
+              .post(
+                `${process.env.REACT_APP_BACKEND_API}user/login/`,
+                {
+                  email: res.data.email,
                 },
-              },
-            )
-            .then((backendRes) => {
-              localStorage.setItem(
-                'spectrumUser',
-                JSON.stringify({ ...res.data, ...backendRes.data }),
-              );
-              setUser({ ...res.data, ...backendRes.data });
-              toast('Log in successful');
-              console.log({ ...res.data, ...backendRes.data });
-            })
-            .catch((err) => {
-              console.log(err);
-              toast('Login attempt failed');
-              setUser(undefined);
-            });
-        })
-        .catch((err) => {
-          toast('Login attempt failed');
-          setUser(undefined);
-        });
+                {
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                },
+              )
+              .then((backendRes) => {
+                localStorage.setItem(
+                  'spectrumUser',
+                  JSON.stringify({ ...res.data, ...backendRes.data }),
+                );
+                setUser({ ...res.data, ...backendRes.data });
+              })
+              .catch((err) => {
+                setUser(undefined);
+                throw err;
+              });
+          })
+          .catch((err) => {
+            setUser(undefined);
+          }),
+        {
+          pending: 'Logging In',
+          success: 'Login Successful',
+          error: 'Login Failed',
+        },
+      );
     }
   }, [user]);
 

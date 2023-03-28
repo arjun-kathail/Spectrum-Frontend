@@ -71,7 +71,7 @@ class EventRegisterForm extends Component {
     if (!participantName || !participantName.trim()) {
       participantNameError = 'Name must be entered';
       error = true;
-    } else if (!participantAge || participantAge <= 0 || participantAge >= 40) {
+    } else if (!participantAge || participantAge <= 0 || participantAge >= 100) {
       participantAgeError = 'Age is required in valid format';
       error = true;
     } else if (!participantPhoneNumber || !participantPhoneNumber.trim()) {
@@ -103,11 +103,18 @@ class EventRegisterForm extends Component {
   };
 
   handleRegisterDetailsSubmit = () => {
-    const isValid = this.validateForm(this.state);
-
-    if (isValid) {
-      alert('Details Submitted');
-      alert(JSON.stringify(this.state));
+    if (this.validateForm(this.state)) {
+      this.props.setFormData({
+        name: this.state.participantName,
+        age: this.state.participantAge,
+        mobile: this.state.participantPhoneNumber,
+        image_url: this.state.participantDriveLink,
+        college: this.state.participantCollegeName,
+        roll_number: this.state.participantCollegeId,
+        tricity_resident: this.state.tricityResident,
+        need_stay: this.state.stayRequired,
+      });
+      this.handleClose();
     }
   };
 
@@ -147,7 +154,7 @@ class EventRegisterForm extends Component {
                 '& .MuiTextField-root': { mt: 1 },
               }}
               autoComplete='off'
-              onSubmit={() => this.handleRegisterDetailsSubmit()}
+              // onSubmit={() => this.handleRegisterDetailsSubmit()}
             >
               <Grid container spacing={2}>
                 <Grid item xs={8} sm={8} md={10}>
@@ -160,7 +167,7 @@ class EventRegisterForm extends Component {
                     label='Full Name'
                     autoFocus
                     onChange={(e) => this.handleEventChange(e)}
-                    value={this.state.participantName}
+                    value={this.state.participantName || ''}
                     inputProps={{ maxLength: 50 }}
                   />
                   <div className={styles.invalid__feedback}>
@@ -177,7 +184,7 @@ class EventRegisterForm extends Component {
                     label='Age'
                     autoFocus
                     onChange={(e) => this.handleEventChange(e)}
-                    value={this.state.participantAge}
+                    value={this.state.participantAge || ''}
                     inputProps={{ maxLength: 50 }}
                   />
                   <div className={styles.invalid__feedback}>{this.state.errors.participantAge}</div>
@@ -206,7 +213,7 @@ class EventRegisterForm extends Component {
                     label='College Name'
                     autoFocus
                     onChange={(e) => this.handleEventChange(e)}
-                    value={this.state.participantCollegeName}
+                    value={this.state.participantCollegeName || ''}
                     inputProps={{ maxLength: 50 }}
                   />
                   <div className={styles.invalid__feedback}>
@@ -220,10 +227,10 @@ class EventRegisterForm extends Component {
                     required
                     fullWidth
                     id='participantDriveLink'
-                    label='Google Drive link'
+                    label='Drive link of artwork with view access'
                     autoFocus
                     onChange={(e) => this.handleEventChange(e)}
-                    value={this.state.participantDriveLink}
+                    value={this.state.participantDriveLink || ''}
                     inputProps={{ maxLength: 100 }}
                   />
                   <div className={styles.invalid__feedback}>
@@ -240,7 +247,7 @@ class EventRegisterForm extends Component {
                     label='Phone Number'
                     autoFocus
                     onChange={(e) => this.handleEventChange(e)}
-                    value={this.state.participantPhoneNumber}
+                    value={this.state.participantPhoneNumber || ''}
                     inputProps={{ maxLength: 10 }}
                   />
                   <div className={styles.invalid__feedback}>
@@ -257,7 +264,7 @@ class EventRegisterForm extends Component {
                     label='Roll No.'
                     autoFocus
                     onChange={(e) => this.handleEventChange(e)}
-                    value={this.state.participantCollegeId}
+                    value={this.state.participantCollegeId || ''}
                     inputProps={{ maxLength: 50 }}
                   />
                   <div className={styles.invalid__feedback}>
@@ -290,12 +297,12 @@ class EventRegisterForm extends Component {
                   <Button
                     fullWidth
                     variant='contained'
-                    type='submit'
                     sx={{
                       color: '#fff',
                       backgroundColor: '#A420D0',
                       '&:hover': { background: '#A420D0' },
                     }}
+                    onClick={this.handleRegisterDetailsSubmit}
                   >
                     Submit <TelegramIcon />
                   </Button>
