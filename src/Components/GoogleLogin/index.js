@@ -79,6 +79,7 @@ const GoogleLoginButton = forwardRef((props, ref) => {
           })
           .catch((err) => {
             setUser(undefined);
+            throw err;
           }),
         {
           pending: 'Logging In',
