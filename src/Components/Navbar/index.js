@@ -62,7 +62,7 @@ function NavBar() {
             component='img'
             alt='Spectrum Logo'
             src={SpectrumLogo}
-            sx={{ height: '1rem', display: { xs: 'none', md: 'flex' }, mr: 1 }}
+            sx={{ height: '1.6rem', display: { xs: 'none', md: 'flex' }, mr: 1 }}
           />
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -107,7 +107,7 @@ function NavBar() {
             component='img'
             alt='Spectrum Logo'
             src={SpectrumLogo}
-            sx={{ height: '1.2rem', display: { xs: 'flex', md: 'none' } }}
+            sx={{ height: '1.4rem', display: { xs: 'flex', md: 'none' } }}
           />
           <Typography
             variant='h5'

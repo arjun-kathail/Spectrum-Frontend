@@ -103,27 +103,27 @@ function Landing() {
           </div>
           <Button
             variant='contained'
-            disableRipple={user?.user_rounds.registered_round_one}
+            disableRipple={user?.user_rounds?.registered_round_one}
             sx={{
               color: '#fff',
-              background: user?.user_rounds.registered_round_one
-                ? '#A420D0'
+              background: user?.user_rounds?.registered_round_one
+                ? '#F9A826'
                 : 'rgba(255, 255, 255, 0)',
-              '&:hover': { background: '#A420D0', border: '', color: '#fff' },
+              '&:hover': { background: '#F9A826', border: '', color: '#fff' },
               display: 'block',
               margin: 'auto',
               fontSize: '1.1rem',
               fontWeight: '600',
-              border: user?.user_rounds.registered_round_one ? '' : '3px solid #A420D0',
-              cursor: user?.user_rounds.registered_round_one ? 'default' : 'pointer',
+              border: user?.user_rounds?.registered_round_one ? '' : '3px solid #F9A826',
+              cursor: user?.user_rounds?.registered_round_one ? 'default' : 'pointer',
             }}
             onClick={() => {
               if (user) {
-                if (!user.user_rounds.registered_round_one) setIsFormOpen(true);
+                if (!user.user_rounds?.registered_round_one) setIsFormOpen(true);
               } else toast.error('You must login first');
             }}
           >
-            {user?.user_rounds.registered_round_one ? 'Registered' : 'Register Now'}
+            {user?.user_rounds?.registered_round_one ? 'Registered' : 'Register Now'}
           </Button>
           <style>
             {`

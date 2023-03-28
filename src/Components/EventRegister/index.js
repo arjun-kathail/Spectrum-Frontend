@@ -299,8 +299,8 @@ class EventRegisterForm extends Component {
                     variant='contained'
                     sx={{
                       color: '#fff',
-                      backgroundColor: '#A420D0',
-                      '&:hover': { background: '#A420D0' },
+                      backgroundColor: '#F9A826',
+                      '&:hover': { background: '#F9A826' },
                     }}
                     onClick={this.handleRegisterDetailsSubmit}
                   >

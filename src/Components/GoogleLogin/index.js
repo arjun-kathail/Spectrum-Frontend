@@ -96,8 +96,8 @@ const GoogleLoginButton = forwardRef((props, ref) => {
           variant='contained'
           sx={{
             color: '#fff',
-            background: '#A420D0',
-            '&:hover': { background: '#A420D0' },
+            background: '#F9A826',
+            '&:hover': { background: '#F9A826' },
             fontSize: '1rem',
           }}
           onClick={() => login()}
