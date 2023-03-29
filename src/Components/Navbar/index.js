@@ -48,7 +48,7 @@ function NavBar() {
 
   return (
     <AppBar
-      position='absolute'
+      position='fixed'
       sx={{
         background: 'rgba(0, 0, 0, 0.65)',
         backdropFilter: 'blur(5px) saturate(180%)',

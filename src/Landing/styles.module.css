@@ -98,6 +98,7 @@
 }
 
 @keyframes datesPlanned {
+
   0%,
   55%,
   100% {
@@ -111,7 +112,7 @@
 }
 
 .aboutUs {
-  width: 90%;
+  width: 100%;
   margin: auto;
   margin-top: 25vh;
   backdrop-filter: blur(16px) saturate(180%);
