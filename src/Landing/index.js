@@ -15,6 +15,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import userContext from '../Context/userContext';
 import axios from 'axios';
 import styles from './styles.module.css';
+import DownloadRoundedIcon from '@mui/icons-material/DownloadRounded';
+import SpectrumBrochure from '../assets/brochure.pdf'
+// import Footer from '../Components/Footer';
 
 function Landing() {
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -133,6 +136,28 @@ function Landing() {
             }
           `}
           </style>
+          <a style={{ textDecoration: 'none' }} href={SpectrumBrochure} download="Spectrum Brochure" target='_blank' rel="noreferrer">
+            <Button
+              variant='contained'
+              disableRipple={user?.user_rounds?.registered_round_one}
+              sx={{
+                color: '#fff',
+                background: 'rgba(255, 255, 255, 0)',
+                '&:hover': { background: '#F9A826', border: '', color: '#fff' },
+                display: 'block',
+                margin: 'auto',
+                marginTop: '10px',
+                fontSize: '1.1rem',
+                fontWeight: '600',
+                border: '3px solid #F9A826',
+                cursor: 'pointer',
+              }}>
+              <div style={{ display: "flex", alignItems: "center" }}>
+                Brochure&nbsp;&nbsp;&nbsp;
+                <DownloadRoundedIcon/>
+              </div>
+            </Button>
+          </a>
           <ToastContainer theme='dark' position='bottom-right' autoClose={2000} />
           {user && isFormOpen && (
             <EventRegisterForm
@@ -143,6 +168,31 @@ function Landing() {
             />
           )}
           <div className={styles.aboutUs}>
+            <div className={styles.Banner}>
+              <img className={styles.BannerImage} src="https://www.cognizance.org.in/Images/Client/event%20image.png"/>
+              <div className={styles.BannerTextContainer}>
+                <p className={styles.BannerHeadingText}>SPECTRUM</p>
+                <p className={styles.BannerText}>The Spectrum art competition has three rounds. In the first round, artists must upload existing artwork to the 
+                competition website. A panel of judges will evaluate each submission based on quality, creativity, and originality, 
+                and select the top 100 artists to move on to the second round. In the second round, artists must create a painting on
+                a sheet of paper using a pre-decided theme to guide their process. The judges will evaluate each painting based on 
+                composition, technique, color scheme, and overall impact, and select the best paintings to move on to the final round.
+                  In the third and final round, contestants must quickly create a painting based on a given topic while judges closely 
+                  observe their work. The marks from all three rounds will be added up to determine the winners of the competition.
+                </p>
+              </div>
+            </div>
+            <div className={styles.Banner}>
+              <div className={styles.BannerTextContainer}>
+                <p className={styles.BannerHeadingText}>PRIZES</p>
+                <p className={styles.BannerText}>Prize Distribution: Prize distribution ceremony will be held at the end of the 
+                second offline day of the competition, that is after finishing the third round. First prize will be 11000 rupees , second 
+                will be 8000 rupees and third prize will be 5000 rupees. We will also give away three consolation prizes worth 2000 rupees. 
+                Certificates will be provided to all participants (reaching atleaast Round 2)
+                </p>
+              </div>
+              <img className={styles.BannerImage} src="https://www.cognizance.org.in/Images/Client/event%20image.png"/>
+            </div>
             <div className={styles.aboutUsQuote}>
               {
                 '“To be an artist is to believe in life, to lose and find ourselves at the same time.”'

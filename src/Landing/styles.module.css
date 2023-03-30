@@ -189,6 +189,46 @@
   -webkit-text-fill-color: transparent;
 }
 
+.Banner{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.BannerTextContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.BannerHeadingText{
+  font-size: 3.5rem;
+  font-weight: 600;
+  background: -webkit-linear-gradient(left, #70e1f5 0%, #ffd194 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+.BannerImage{
+  padding-right: 30px;
+}
+
+.BannerText{
+  padding: 0;
+  margin: 0;
+  border-left: 5px solid rgba(112,225,245,0.5);
+  padding-left: 1vw;
+}
+
 @media (max-width: 600px) {
   .spectrumLogo {
     width: 85%;
