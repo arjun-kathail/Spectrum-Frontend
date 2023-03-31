@@ -98,6 +98,7 @@
 
 .ViewMore {
     cursor: pointer;
+    text-decoration: underline;
 }
 
 .EventDetailModal{

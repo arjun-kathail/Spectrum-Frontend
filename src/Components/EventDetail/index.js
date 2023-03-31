@@ -251,7 +251,7 @@ function EventDetail(){
                         round1Active ?
                         <div className={styles.EventDescriptionContainer}>
                         <p className={styles.EventDetailDescription}>
-                            To participate in Spectrum, interested individuals need to <b>upload their existing artwork on the website provided</b>. The submitted artworks will then be evaluated by a panel of judges who will review and assess the quality, creativity, and originality of each piece. Based on the judges&apos; evaluations, the <b>top 100 artists will be selected</b> and invited to the next round, which is scheduled to take place offline on next day.
+                            To participate in Spectrum, interested individuals need to <b>upload their existing artwork on the website provided</b>. The submitted artworks will then be evaluated by a panel of judges who will review and assess the quality, creativity, and originality of each piece. Based on the judges&apos; evaluations, the <b>top 100 artists will be selected</b> and invited to the next round, which is scheduled to take place offline on Day 1 of offline event.
                         </p>
                         <h5 onClick={handleOpen} className={styles.ViewMore}>Read more..</h5>
                         </div> :
