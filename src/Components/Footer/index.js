@@ -23,7 +23,7 @@ const Footer = (props) => {
         <a className={styles.icon} href='mailto:spectrum.apcpec@gmail.com' target='_blank' rel="noreferrer">
           <EmailIcon/>
         </a>
-        <p>©Spectrum 2023. All rights reserved.</p>
+        <p>©Spectrum. All rights reserved.</p>
       </div>
       <div>
         <p className={styles.heading}>Contact details:</p>
