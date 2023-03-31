@@ -6,9 +6,9 @@ a {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-left: 10vw;
-    margin-right: 10vw;
-    width: 80vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    width: 90vw;
     border-top: 3px solid white;
     padding-top: 10px;
     padding-bottom: 10px;
