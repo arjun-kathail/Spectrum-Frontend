@@ -100,6 +100,7 @@ function Landing() {
           </div>
           {/* <div className={styles.presentedBy}>PRESENTS</div> */}
           <img alt='spectrum logo' src={SpectrumWhite} className={styles.spectrumLogo} />
+          <p style={{ textAlign: "center", fontStyle: "italic", fontSize: "1.2rem", fontWeight: "400" }}>The stroke of a creative mind</p>
           <div className={styles.banner}>
             <div className={styles.eventDates}>29 - 30 April, 2023</div>
             <div className={styles.daysLeft}>{getDaysLeft()}</div>
@@ -172,23 +173,23 @@ function Landing() {
               <img className={styles.BannerImage} src="https://www.cognizance.org.in/Images/Client/event%20image.png"/>
               <div className={styles.BannerTextContainer}>
                 <p className={styles.BannerHeadingText}>SPECTRUM</p>
-                <p className={styles.BannerText}>The Spectrum art competition has three rounds. In the first round, artists must upload existing artwork to the 
+                <p className={styles.BannerText}>The Spectrum art competition has <span className={styles.BannerTextBold}>three rounds</span>. In the <span className={styles.BannerTextBold}>first round</span>, artists must upload existing artwork to the 
                 competition website. A panel of judges will evaluate each submission based on quality, creativity, and originality, 
-                and select the top 100 artists to move on to the second round. In the second round, artists must create a painting on
+                and select the top 100 artists to move on to the second round. In the <span className={styles.BannerTextBold}>second round</span>, artists must create a painting on
                 a sheet of paper using a pre-decided theme to guide their process. The judges will evaluate each painting based on 
                 composition, technique, color scheme, and overall impact, and select the best paintings to move on to the final round.
-                  In the third and final round, contestants must quickly create a painting based on a given topic while judges closely 
-                  observe their work. The marks from all three rounds will be added up to determine the winners of the competition.
+                  In the <span className={styles.BannerTextBold}>third and final round</span>, contestants must quickly create a painting based on a given topic while judges closely 
+                  observe their work. 
                 </p>
               </div>
             </div>
             <div className={styles.Banner}>
               <div className={styles.BannerTextContainer}>
                 <p className={styles.BannerHeadingText}>PRIZES</p>
-                <p className={styles.BannerText}>Prize Distribution: Prize distribution ceremony will be held at the end of the 
-                second offline day of the competition, that is after finishing the third round. First prize will be 11000 rupees , second 
-                will be 8000 rupees and third prize will be 5000 rupees. We will also give away three consolation prizes worth 2000 rupees. 
-                Certificates will be provided to all participants (reaching atleaast Round 2)
+                <p className={styles.BannerText}>The marks from all three rounds will be added up to determine the winners of the competition. The Prize distribution ceremony will be held at the end of the 
+                third round. <span className={styles.BannerTextBold}>The total prize pool of the competition is rupees 50000 (30000 + goodies)</span>. First prize awarded will be 11000 rupees , second prize 
+                will be 8000 rupees and third prize will be 5000 rupees. Three consolation prizes worth 2000 rupees each will also be awarded.<br></br>
+                Certificates will be provided to all participants (those reaching atleast Round 2).
                 </p>
               </div>
               <img className={styles.BannerImage} src="https://www.cognizance.org.in/Images/Client/event%20image.png"/>
