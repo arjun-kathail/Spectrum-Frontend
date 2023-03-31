@@ -17,7 +17,7 @@ import axios from 'axios';
 import styles from './styles.module.css';
 import DownloadRoundedIcon from '@mui/icons-material/DownloadRounded';
 import SpectrumBrochure from '../assets/brochure.pdf'
-// import Footer from '../Components/Footer';
+import Footer from '../Components/Footer';
 
 function Landing() {
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -214,6 +214,7 @@ function Landing() {
                 'Bringing to you the flagship event of Art club of Punjab Engineering College, Chandigarh, by the efforts of passionate artists and creative students of Art and Photography club. Continuously providing a platform for students of all years in the college to share their creativity, knowledge, and passion, we now aim to create a platform for the people interested and proficient in Art and painting to showcase their talent. Thus, PRESENTING SPECTRUM!'
               }
             </div>
+            <Footer/>
           </div>
         </div>
       </GradientBackground>
