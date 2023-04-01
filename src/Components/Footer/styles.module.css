@@ -1,5 +1,5 @@
 a {
-  color: white;
+  color: inherit;
 }
 
 .container {
@@ -14,14 +14,25 @@ a {
   padding-bottom: 10px;
 }
 
+.text{
+  margin: 0;
+  padding: 0;
+  margin-top: 5px;
+}
+
 .heading {
+  margin: 0;
+  padding: 0;
   font-weight: 600;
   font-size: 1.2rem;
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
 .icon {
-  margin-left: 5px;
-  margin-right: 5px;
+  margin: 5px;
+  padding-top: 5px;
+  color: white;
 }
 
 @media (max-width: 650px) {

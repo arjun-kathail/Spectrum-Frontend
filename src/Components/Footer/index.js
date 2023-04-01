@@ -43,12 +43,12 @@ const Footer = (props) => {
         >
           <EmailIcon />
         </a>
-        <p>©Spectrum. All rights reserved.</p>
+        <p className={styles.text}>©Spectrum. All rights reserved.</p>
       </div>
       <div>
         <p className={styles.heading}>Contact details:</p>
-        <p>Tushar Garg - 9115670588</p>
-        <p>Richa Sabharwal - 8284003672</p>
+        <p className={styles.text}>Tushar Garg - 9115670588</p>
+        <p className={styles.text}>Richa Sabharwal - 8284003672</p>
       </div>
     </div>
   );
