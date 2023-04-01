@@ -58,13 +58,15 @@ function EventDetail(){
                 <div className={'col-12 col-md-6 col-lg-8 mt-4'} style={{display: "flex", alignItems: "center"}}>
                     <div className={styles.DescriptionSection}>
                     <div className={styles.RoundsNavsContainer}>
-                        <Modal  size="lg"
-                                aria-labelledby="contained-modal-title-vcenter"
-                                className={styles.EventDetailModal}
-                                centered  show={descriptionModalOpen} onHide={handleClose}> 
+                        <Modal  
+                            size="xl"
+                            aria-labelledby="contained-modal-title-vcenter"
+                            className={styles.EventDetailModal}
+                            centered  
+                            show={descriptionModalOpen} onHide={handleClose}> 
                             {
                             round1Active && !moreDetailsView ?
-                            <p className={styles.ModalEventDescription}>
+                            <p className={styles.ModalEventDescription} >
                                 The purpose of the online screening round is to evaluate the quality and suitability of the artwork and to determine which candidates will advance to the next round of the competition. 
                                 <br/>
                                 <br/>
@@ -88,7 +90,8 @@ function EventDetail(){
                                 <br/>
                                 <br/>
                                 Note: Candidates should carefully review the submission requirements and judging criteria provided before submitting their artwork to ensure that they meet all the rules.
-                            </p> :
+                            </p>
+                            :
                             <></>
                             }
                             {
@@ -237,14 +240,14 @@ function EventDetail(){
                         </Modal>
                         <div className={styles.RoundsNavs} onClick={() => clickRound1()}>
                             <span >
-                                <p className={round1Active ? styles.RoundsNavsNameActive : styles.RoundsNavsName}>ROUND 1</p>
+                                <p className={round1Active ? styles.RoundsNavsNameActive : styles.RoundsNavsName}>ROUND-1</p>
                             </span>
                         </div>
                         <div className={styles.RoundsNavs} onClick={() => clickRound2()}>
-                            <span ><p className={round2Active ? styles.RoundsNavsNameActive : styles.RoundsNavsName}>ROUND 2</p></span>
+                            <span ><p className={round2Active ? styles.RoundsNavsNameActive : styles.RoundsNavsName}>ROUND-2</p></span>
                         </div>
                         <div className={styles.RoundsNavs} onClick={() => clickRound3()}>
-                            <span ><p className={round3Active ? styles.RoundsNavsNameActive : styles.RoundsNavsName}>ROUND 3</p></span>
+                            <span ><p className={round3Active ? styles.RoundsNavsNameActive : styles.RoundsNavsName}>ROUND-3</p></span>
                         </div>
                     </div>
                     {
@@ -253,7 +256,7 @@ function EventDetail(){
                         <p className={styles.EventDetailDescription}>
                             To participate in Spectrum, interested individuals need to <b>upload their existing artwork on the website provided</b>. The submitted artworks will then be evaluated by a panel of judges who will review and assess the quality, creativity, and originality of each piece. Based on the judges&apos; evaluations, the <b>top 100 artists will be selected</b> and invited to the next round, which is scheduled to take place offline on Day 1 of offline event.
                         </p>
-                        <h5 onClick={handleOpen} className={styles.ViewMore}>Read more..</h5>
+                        <p onClick={handleOpen} className={styles.ViewMore}>Read more..</p>
                         </div> :
                         <></>
                     }
@@ -291,15 +294,15 @@ function EventDetail(){
                         }}
                         onClick={clickMoreDetails}
                     >
-                        More Details
+                        More Rules
                     </Button>
                     </div>
                 </div>
-                <div className='col-12 col-md-6 col-lg-4 mt-4'>
-                    <img className={styles.EventImage1} src={Image2}/>
-                    <img className={styles.EventImage2} src={Image1}/>
-                    <img className={styles.EventImage3} src={Image3}/>
-                </div>
+                    <div className='col-12 col-md-6 col-lg-4 mt-4'>
+                        <img className={styles.EventImage1} src={Image2}/>
+                        <img className={styles.EventImage2} src={Image1}/>
+                        <img className={styles.EventImage3} src={Image3}/>
+                    </div>
             </div>
         </div>
     );
