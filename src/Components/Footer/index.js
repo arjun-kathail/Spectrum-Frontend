@@ -11,17 +11,37 @@ const Footer = (props) => {
     <div className={styles.container}>
       <div>
         <p className={styles.heading}>Connect with us on:</p>
-        <a className={styles.icon} href='https://www.facebook.com/apc.pec' target='_blank' rel="noreferrer">
-          <FacebookIcon/>
+        <a
+          className={styles.icon}
+          href='https://www.facebook.com/apc.pec'
+          target='_blank'
+          rel='noreferrer'
+        >
+          <FacebookIcon />
         </a>
-        <a className={styles.icon} href='https://www.linkedin.com/company/art-photography-club/about/' target='_blank' rel="noreferrer">
-          <LinkedInIcon/>
+        <a
+          className={styles.icon}
+          href='https://www.linkedin.com/company/art-photography-club/about/'
+          target='_blank'
+          rel='noreferrer'
+        >
+          <LinkedInIcon />
         </a>
-        <a className={styles.icon} href='https://www.instagram.com/spectrum_apc/' target='_blank' rel="noreferrer">
-          <InstagramIcon/>
+        <a
+          className={styles.icon}
+          href='https://www.instagram.com/spectrum_apc/'
+          target='_blank'
+          rel='noreferrer'
+        >
+          <InstagramIcon />
         </a>
-        <a className={styles.icon} href='mailto:spectrum.apcpec@gmail.com' target='_blank' rel="noreferrer">
-          <EmailIcon/>
+        <a
+          className={styles.icon}
+          href='mailto:spectrum.apcpec@gmail.com'
+          target='_blank'
+          rel='noreferrer'
+        >
+          <EmailIcon />
         </a>
         <p>©Spectrum. All rights reserved.</p>
       </div>
@@ -33,4 +53,5 @@ const Footer = (props) => {
     </div>
   );
 };
+
 export default Footer;

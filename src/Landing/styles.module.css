@@ -98,7 +98,6 @@
 }
 
 @keyframes datesPlanned {
-
   0%,
   55%,
   100% {
@@ -189,7 +188,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-.Banner{
+.Banner {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -200,13 +199,13 @@
   padding-bottom: 50px;
 }
 
-.BannerTextContainer{
+.BannerTextContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.BannerHeadingText{
+.BannerHeadingText {
   font-size: 3.5rem;
   font-weight: 600;
   background: -webkit-linear-gradient(left, #70e1f5 0%, #ffd194 100%);
@@ -218,21 +217,21 @@
   margin-bottom: 20px;
 }
 
-.BannerImage{
+.BannerImage {
   padding-right: 30px;
 }
 
-.BannerText{
+.BannerText {
   padding: 0;
   margin: 0;
-  border-left: 5px solid rgba(112,225,245,0.5);
+  border-left: 5px solid rgba(112, 225, 245, 0.5);
   padding-left: 1vw;
   font-weight: 300;
   text-align: justify;
   text-justify: inter-word;
 }
 
-.BannerTextBold{
+.BannerTextBold {
   font-weight: 600;
 }
 

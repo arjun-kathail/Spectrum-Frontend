@@ -1,0 +1,106 @@
+.BannerHeadingText {
+  font-size: 3.5rem;
+  font-weight: 600;
+  background: -webkit-linear-gradient(left, #70e1f5 0%, #ffd194 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.Banner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.RoundsNavsContainer {
+  display: flex;
+}
+
+.RoundsNavs {
+  padding-right: 2%;
+}
+
+.RoundsNavsNameActive {
+  font-size: x-large;
+  font-weight: bold;
+  text-decoration: underline;
+  text-underline-offset: 15px;
+  cursor: pointer;
+  align-content: center;
+}
+
+.RoundsNavsName {
+  font-size: x-large;
+  font-weight: bold;
+  color: grey;
+  cursor: pointer;
+  align-content: center;
+}
+
+.EventDetailHeading {
+  color: white;
+  background-color: transparent;
+}
+
+.EventDescriptionContainer {
+  border-left: 5px solid rgba(112, 225, 245, 0.5);
+  padding-left: 15px;
+  width: 80%;
+}
+
+.EventDetailDescription {
+  margin-top: 30px;
+  text-align: justify;
+}
+
+.ModalEventDescription {
+  text-align: justify;
+  padding: 2.5rem;
+  background-color: black;
+  color: white;
+  margin-bottom: 0;
+  border-radius: 5px;
+}
+
+.EventImage1 {
+  border: 2px solid #f9a826;
+  border-radius: 8px;
+  position: relative;
+  margin-top: 0px;
+}
+
+.EventImage2 {
+  border: 2px solid #f9a826;
+  border-radius: 8px;
+  position: relative;
+  margin-top: 30px;
+  z-index: 20;
+}
+
+.EventImage3 {
+  border: 2px solid #f9a826;
+  border-radius: 8px;
+  position: relative;
+  margin-top: -300px;
+  margin-left: -120px;
+  z-index: 10px;
+}
+
+.ViewMore {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.EventDetailModal {
+  color: black;
+}
