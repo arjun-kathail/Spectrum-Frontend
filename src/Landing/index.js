@@ -17,6 +17,8 @@ import DownloadRoundedIcon from '@mui/icons-material/DownloadRounded';
 import SpectrumBrochure from '../assets/brochure.pdf';
 import Footer from '../Components/Footer';
 import EventDetail from '../Components/EventDetail';
+import PrizesImage from '../assets/prizes.png';
+import EventsImage from '../assets/events.png';
 
 function Landing() {
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -135,7 +137,7 @@ function Landing() {
               } else toast.error('You must login first');
             }}
           >
-            {user?.user_rounds?.registered_round_one ? 'Registered  ' : 'Register Now'}
+            {user?.user_rounds?.registered_round_one ? <div>Registered&nbsp;&nbsp;</div> : <div>Register Now</div>}
           </Button>
           <style>
             {`
@@ -184,10 +186,10 @@ function Landing() {
             />
           )}
           <div className={styles.aboutUs}>
-            <div className={styles.Banner}>
+            <div className={styles.SpectrumBanner}>
               <img
                 className={styles.BannerImage}
-                src='https://www.cognizance.org.in/Images/Client/event%20image.png'
+                src={EventsImage}
               />
               <div className={styles.BannerTextContainer}>
                 <p className={styles.BannerHeadingText}>SPECTRUM</p>
@@ -208,7 +210,7 @@ function Landing() {
                 </p>
               </div>
             </div>
-            <div className={styles.Banner}>
+            <div className={styles.PrizesBanner}>
               <div className={styles.BannerTextContainer}>
                 <p className={styles.BannerHeadingText}>PRIZES</p>
                 <p className={styles.BannerText}>
@@ -227,7 +229,7 @@ function Landing() {
               </div>
               <img
                 className={styles.BannerImage}
-                src='https://www.cognizance.org.in/Images/Client/event%20image.png'
+                src={PrizesImage}
               />
             </div>
             <EventDetail />
