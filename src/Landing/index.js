@@ -128,7 +128,7 @@ function Landing() {
               margin: 'auto',
               fontSize: '1.1rem',
               fontWeight: '600',
-              border: user?.user_rounds?.registered_round_one ? '' : '3px solid #F9A826',
+              border: '3px solid #F9A826',
               cursor: user?.user_rounds?.registered_round_one ? 'default' : 'pointer',
             }}
             onClick={() => {
