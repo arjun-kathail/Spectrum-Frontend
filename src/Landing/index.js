@@ -137,7 +137,7 @@ function Landing() {
               } else toast.error('You must login first');
             }}
           >
-            {user?.user_rounds?.registered_round_one ? <div>Registered&nbsp;&nbsp;</div> : <div>Register Now</div>}
+            {user?.user_rounds?.registered_round_one ? <div>&nbsp;&nbsp;Registered&nbsp;&nbsp;</div> : <div>Register Now</div>}
           </Button>
           <style>
             {`
