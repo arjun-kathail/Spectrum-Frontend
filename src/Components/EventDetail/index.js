@@ -1,54 +1,53 @@
 import { React, useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import { Button } from '@mui/material';
-import Image1 from "./images/image1.jpg"
-import Image2 from "./images/image2.jpg"
-import Image3 from "./images/image3.jpg"
-import EventDes1 from "./images/eventdes1.png"
-import EventDes2 from "./images/eventdes2.png"
-import styles from "./styles.module.css";
+import Image1 from './images/image1.jpg';
+import Image2 from './images/image2.jpg';
+import Image3 from './images/image3.jpg';
+import EventDes1 from './images/eventdes1.png';
+import EventDes2 from './images/eventdes2.png';
+import styles from './styles.module.css';
 
-function EventDetail(){
+function EventDetail() {
+  const [round1Active, setRound1Active] = useState(true);
+  const [round2Active, setRound2Active] = useState(false);
+  const [round3Active, setRound3Active] = useState(false);
+  const [descriptionModalOpen, setdescriptionModalOpen] = useState(false);
+  const [moreDetailsView, setmoreDetailsView] = useState(false);
 
-    const [round1Active, setRound1Active] = useState(true);
-    const [round2Active, setRound2Active] = useState(false);
-    const [round3Active, setRound3Active] = useState(false);
-    const [descriptionModalOpen, setdescriptionModalOpen] = useState(false);
-    const [moreDetailsView, setmoreDetailsView] = useState(false);
+  const handleOpen = () => {
+    setdescriptionModalOpen(true);
+  };
+  const handleClose = () => {
+    setdescriptionModalOpen(false);
+    setmoreDetailsView(false);
+  };
 
-    const handleOpen = () => {
-        setdescriptionModalOpen(true);
-      };
-    const handleClose = () => {
-        setdescriptionModalOpen(false);
-        setmoreDetailsView(false)
-    };
+  const clickRound1 = () => {
+    setRound1Active(true);
+    setRound2Active(false);
+    setRound3Active(false);
+    setmoreDetailsView(false);
+  };
 
-    const clickRound1 = () => {
-        setRound1Active(true);
-        setRound2Active(false);
-        setRound3Active(false);
-        setmoreDetailsView(false);
-    }
+  const clickRound2 = () => {
+    setRound2Active(true);
+    setRound1Active(false);
+    setRound3Active(false);
+    setmoreDetailsView(false);
+  };
 
-    const clickRound2 = () => {
-        setRound2Active(true);
-        setRound1Active(false);
-        setRound3Active(false);
-        setmoreDetailsView(false);
-    }
+  const clickRound3 = () => {
+    setRound3Active(true);
+    setRound1Active(false);
+    setRound2Active(false);
+    setmoreDetailsView(false);
+  };
 
-    const clickRound3 = () => {
-        setRound3Active(true);
-        setRound1Active(false);
-        setRound2Active(false);
-        setmoreDetailsView(false);
-    }
-
-    const clickMoreDetails = () => {
-        setmoreDetailsView(true);
-        handleOpen();
-    }
+  const clickMoreDetails = () => {
+    setmoreDetailsView(true);
+    handleOpen();
+  };
 
     return (
     

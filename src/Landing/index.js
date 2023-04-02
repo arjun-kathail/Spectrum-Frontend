@@ -7,8 +7,6 @@ import ParticlesBackground from '../Components/ParticlesBackground';
 import SpectrumWhite from '../assets/logos/spectrum_white.png';
 import ApcLogo from '../assets/logos/apc_logo_white.png';
 import PecLogo from '../assets/logos/pec_logo_since_1921.png';
-import PainterIllustration from '../assets/Illustrations/4.svg';
-import MonsterIllustration from '../assets/Illustrations/5.svg';
 import EventRegisterForm from '../Components/EventRegister';
 import date from 'date-and-time';
 import 'react-toastify/dist/ReactToastify.css';
@@ -16,9 +14,11 @@ import userContext from '../Context/userContext';
 import axios from 'axios';
 import styles from './styles.module.css';
 import DownloadRoundedIcon from '@mui/icons-material/DownloadRounded';
-import SpectrumBrochure from '../assets/brochure.pdf'
+import SpectrumBrochure from '../assets/brochure.pdf';
+import Footer from '../Components/Footer';
 import EventDetail from '../Components/EventDetail';
-// import Footer from '../Components/Footer';
+import PrizesImage from '../assets/prizes.png';
+import EventsImage from '../assets/events.png';
 
 function Landing() {
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -101,7 +101,16 @@ function Landing() {
           </div>
           {/* <div className={styles.presentedBy}>PRESENTS</div> */}
           <img alt='spectrum logo' src={SpectrumWhite} className={styles.spectrumLogo} />
-          <p style={{ textAlign: "center", fontStyle: "italic", fontSize: "1.2rem", fontWeight: "400" }}>The stroke of a creative mind</p>
+          <p
+            style={{
+              textAlign: 'center',
+              fontStyle: 'italic',
+              fontSize: '1.2rem',
+              fontWeight: '400',
+            }}
+          >
+            The stroke of a creative mind
+          </p>
           <div className={styles.banner}>
             <div className={styles.eventDates}>29 - 30 April, 2023</div>
             <div className={styles.daysLeft}>{getDaysLeft()}</div>
@@ -119,7 +128,7 @@ function Landing() {
               margin: 'auto',
               fontSize: '1.1rem',
               fontWeight: '600',
-              border: user?.user_rounds?.registered_round_one ? '' : '3px solid #F9A826',
+              border: '3px solid #F9A826',
               cursor: user?.user_rounds?.registered_round_one ? 'default' : 'pointer',
             }}
             onClick={() => {
@@ -128,7 +137,7 @@ function Landing() {
               } else toast.error('You must login first');
             }}
           >
-            {user?.user_rounds?.registered_round_one ? 'Registered' : 'Register Now'}
+            {user?.user_rounds?.registered_round_one ? <div>&nbsp;&nbsp;Registered&nbsp;&nbsp;&nbsp;</div> : <div>Register Now</div>}
           </Button>
           <style>
             {`
@@ -138,7 +147,13 @@ function Landing() {
             }
           `}
           </style>
-          <a style={{ textDecoration: 'none' }} href={SpectrumBrochure} download="Spectrum Brochure" target='_blank' rel="noreferrer">
+          <a
+            style={{ textDecoration: 'none' }}
+            href={SpectrumBrochure}
+            download='Spectrum Brochure'
+            target='_blank'
+            rel='noreferrer'
+          >
             <Button
               variant='contained'
               disableRipple={user?.user_rounds?.registered_round_one}
@@ -153,10 +168,11 @@ function Landing() {
                 fontWeight: '600',
                 border: '3px solid #F9A826',
                 cursor: 'pointer',
-              }}>
-              <div style={{ display: "flex", alignItems: "center" }}>
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center' }}>
                 Brochure&nbsp;&nbsp;&nbsp;
-                <DownloadRoundedIcon/>
+                <DownloadRoundedIcon />
               </div>
             </Button>
           </a>
@@ -170,52 +186,54 @@ function Landing() {
             />
           )}
           <div className={styles.aboutUs}>
-            <div className={styles.Banner}>
-              <img className={styles.BannerImage} src="https://www.cognizance.org.in/Images/Client/event%20image.png"/>
+            <div className={styles.SpectrumBanner}>
+              <img
+                className={styles.BannerImage}
+                src={EventsImage}
+              />
               <div className={styles.BannerTextContainer}>
                 <p className={styles.BannerHeadingText}>SPECTRUM</p>
-                <p className={styles.BannerText}>The Spectrum art competition has <span className={styles.BannerTextBold}>three rounds</span>. In the <span className={styles.BannerTextBold}>first round</span>, artists must upload existing artwork to the 
-                competition website. A panel of judges will evaluate each submission based on quality, creativity, and originality, 
-                and select the top 100 artists to move on to the second round. In the <span className={styles.BannerTextBold}>second round</span>, artists must create a painting on
-                a sheet of paper using a pre-decided theme to guide their process. The judges will evaluate each painting based on 
-                composition, technique, color scheme, and overall impact, and select the best paintings to move on to the final round.
-                  In the <span className={styles.BannerTextBold}>third and final round</span>, contestants must quickly create a painting based on a given topic while judges closely 
-                  observe their work. 
+                <p className={styles.BannerText}>
+                  The Spectrum art competition has{' '}
+                  <span className={styles.BannerTextBold}>three rounds</span>. In the{' '}
+                  <span className={styles.BannerTextBold}>first round</span>, artists must upload
+                  existing artwork to the competition website. A panel of judges will evaluate each
+                  submission based on quality, creativity, and originality, and select the top 100
+                  artists to move on to the second round. In the{' '}
+                  <span className={styles.BannerTextBold}>second round</span>, artists must create a
+                  painting on a sheet of paper using a pre-decided theme to guide their process. The
+                  judges will evaluate each painting based on composition, technique, color scheme,
+                  and overall impact, and select the best paintings to move on to the final round.
+                  In the <span className={styles.BannerTextBold}>third and final round</span>,
+                  contestants must quickly create a painting based on a given topic while judges
+                  closely observe their work.
                 </p>
               </div>
             </div>
-            <div className={styles.Banner}>
+            <div className={styles.PrizesBanner}>
               <div className={styles.BannerTextContainer}>
                 <p className={styles.BannerHeadingText}>PRIZES</p>
-                <p className={styles.BannerText}>The marks from all three rounds will be added up to determine the winners of the competition. The Prize distribution ceremony will be held at the end of the 
-                third round. <span className={styles.BannerTextBold}>The total prize pool of the competition is rupees 50000 (30000 + goodies)</span>. First prize awarded will be 11000 rupees , second prize 
-                will be 8000 rupees and third prize will be 5000 rupees. Three consolation prizes worth 2000 rupees each will also be awarded.<br></br>
-                Certificates will be provided to all participants (those reaching atleast Round 2).
+                <p className={styles.BannerText}>
+                  The marks from all three rounds will be added up to determine the winners of the
+                  competition. The Prize distribution ceremony will be held at the end of the third
+                  round.{' '}
+                  <span className={styles.BannerTextBold}>
+                    The total prize pool of the competition is rupees 50000 (30000 + goodies)
+                  </span>
+                  . First prize awarded will be 11000 rupees , second prize will be 8000 rupees and
+                  third prize will be 5000 rupees. Three consolation prizes worth 2000 rupees each
+                  will also be awarded.<br></br>
+                  Certificates will be provided to all participants (those reaching atleast Round
+                  2).
                 </p>
               </div>
-              <img className={styles.BannerImage} src="https://www.cognizance.org.in/Images/Client/event%20image.png"/>
+              <img
+                className={styles.BannerImage}
+                src={PrizesImage}
+              />
             </div>
             <EventDetail />
-            <div className={styles.aboutUsQuote}>
-              {
-                '“To be an artist is to believe in life, to lose and find ourselves at the same time.”'
-              }
-            </div>
-            <div className={styles.aboutUsSpectrum}>
-              {
-                'A 2 day event in collaboration with Tricity’s biggest art houses and premier institutions in India, will be the first event of its kind in the region with a total prize pool of ₹75K'
-              }
-            </div>
-            <div className={styles.illustrations}>
-              <img alt='painter' src={PainterIllustration} />
-              <img alt='painter' src={MonsterIllustration} />
-            </div>
-            <div className={styles.aboutUsTitle}>About Us</div>
-            <div className={styles.aboutUsContent}>
-              {
-                'Bringing to you the flagship event of Art club of Punjab Engineering College, Chandigarh, by the efforts of passionate artists and creative students of Art and Photography club. Continuously providing a platform for students of all years in the college to share their creativity, knowledge, and passion, we now aim to create a platform for the people interested and proficient in Art and painting to showcase their talent. Thus, PRESENTING SPECTRUM!'
-              }
-            </div>
+            <Footer />
           </div>
         </div>
       </GradientBackground>
