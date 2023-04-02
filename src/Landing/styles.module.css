@@ -233,6 +233,11 @@
   width: 550px;
 }
 
+.DeliverablesBannerImage{
+  height: 550px;
+  width: 550px;
+}
+
 .BannerText {
   padding: 0;
   margin: 0;
@@ -252,10 +257,18 @@
     height: 450px;
     width: 450px;
   }
+  .DeliverablesBannerImage{
+    height: 450px;
+    width: 450px;
+  }
 }
 
 @media (max-width: 900px) {
   .BannerImage{
+    height: 350px;
+    width: 350px;
+  }
+  .DeliverablesBannerImage{
     height: 350px;
     width: 350px;
   }
@@ -279,6 +292,10 @@
   }
   .BannerImage{
     height: 450px;
+    width: 450px;
+  }
+  .DeliverablesBannerImage{
+    height: 400px;
     width: 450px;
   }
   .BannerHeadingText {
@@ -346,6 +363,10 @@
     height: 400px;
     width: 400px;
   }
+  .DeliverablesBannerImage{
+    height: 350px;
+    width: 400px;
+  }
   .BannerHeadingText {
     font-size: 3rem;
   }
@@ -359,6 +380,10 @@
     height: 330px;
     width: 330px;
   }
+  .DeliverablesBannerImage{
+    height: 280px;
+    width: 330px;
+  }
   .BannerHeadingText {
     font-size: 2.5rem;
   }
@@ -370,6 +395,10 @@
 @media (max-width: 350px) {
   .BannerImage{
     height: 300px;
+    width: 300px;
+  }
+  .DeliverablesBannerImage{
+    height: 250px;
     width: 300px;
   }
   .SpectrumBanner {
