@@ -1,17 +1,17 @@
-.BannerHeadingText {
-  font-size: 3.5rem;
-  font-weight: 600;
-  background: -webkit-linear-gradient(left, #70e1f5 0%, #ffd194 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  padding: 0;
-  margin: 0;
-  margin-bottom: 20px;
-  text-align: center;
+.EventDetailHeading{
+    font-size: 2.3rem;
+    font-weight: 600;
+    background: -webkit-linear-gradient(left, #70e1f5 0%, #ffd194 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
-.Banner {
+.EventDetailContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -19,7 +19,7 @@
   padding-left: 5vw;
   padding-right: 5vw;
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 100px;
 }
 
 .RoundsNavsContainer {
@@ -31,20 +31,20 @@
 }
 
 .RoundsNavsNameActive {
-  font-size: x-large;
-  font-weight: bold;
-  text-decoration: underline;
-  text-underline-offset: 15px;
-  cursor: pointer;
-  align-content: center;
+    font-size: larger;
+    font-weight: bold;
+    text-decoration: underline;
+    text-underline-offset: 15px;
+    cursor: pointer;
+    align-content: center;
 }
 
 .RoundsNavsName {
-  font-size: x-large;
-  font-weight: bold;
-  color: grey;
-  cursor: pointer;
-  align-content: center;
+    font-size: larger;
+    font-weight: bold;
+    color: grey;
+    cursor: pointer;
+    align-content: center;
 }
 
 .EventDetailHeading {
@@ -101,6 +101,35 @@
   text-decoration: underline;
 }
 
-.EventDetailModal {
-  color: black;
+.EventDetailModal{
+    color: black;
+    overflow-y: auto;
+    max-height: calc(100vh - 200px);
+    position: absolute;
+    transform: translate(0%, 10%);
+}
+
+@media only screen and (max-width: 480px) {
+    .RoundsNavsNameActive {
+        font-size: medium !important;
+    }
+
+    .RoundsNavsName {
+        font-size: medium !important;
+    }
+
+    .EventImage1 {
+        height: 40%;
+        width: 60%;
+    }
+
+    .EventImage2 {
+        height: 60%;
+        width: 50%;
+    } 
+
+    .EventImage3 {
+        height: 35%;
+        width: 55%;
+    }  
 }

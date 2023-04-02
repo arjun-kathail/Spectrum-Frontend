@@ -261,7 +261,7 @@ class EventRegisterForm extends Component {
                     required
                     fullWidth
                     id='participantCollegeId'
-                    label='Roll No.'
+                    label='College ID'
                     autoFocus
                     onChange={(e) => this.handleEventChange(e)}
                     value={this.state.participantCollegeId || ''}

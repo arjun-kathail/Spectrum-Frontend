@@ -17,6 +17,9 @@ import DownloadRoundedIcon from '@mui/icons-material/DownloadRounded';
 import SpectrumBrochure from '../assets/brochure.pdf';
 import Footer from '../Components/Footer';
 import EventDetail from '../Components/EventDetail';
+import PrizesImage from '../assets/prizes.png';
+import EventsImage from '../assets/events.png';
+import DeliverablesImage from '../assets/deliverables.png';
 
 function Landing() {
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -126,7 +129,7 @@ function Landing() {
               margin: 'auto',
               fontSize: '1.1rem',
               fontWeight: '600',
-              border: user?.user_rounds?.registered_round_one ? '' : '3px solid #F9A826',
+              border: '3px solid #F9A826',
               cursor: user?.user_rounds?.registered_round_one ? 'default' : 'pointer',
             }}
             onClick={() => {
@@ -135,7 +138,7 @@ function Landing() {
               } else toast.error('You must login first');
             }}
           >
-            {user?.user_rounds?.registered_round_one ? 'Registered' : 'Register Now'}
+            {user?.user_rounds?.registered_round_one ? <div>&nbsp;&nbsp;Registered&nbsp;&nbsp;&nbsp;</div> : <div>Register Now</div>}
           </Button>
           <style>
             {`
@@ -184,10 +187,10 @@ function Landing() {
             />
           )}
           <div id='event' className={styles.aboutUs}>
-            <div className={styles.Banner}>
+            <div className={styles.SpectrumBanner}>
               <img
                 className={styles.BannerImage}
-                src='https://www.cognizance.org.in/Images/Client/event%20image.png'
+                src={EventsImage}
               />
               <div className={styles.BannerTextContainer}>
                 <p className={styles.BannerHeadingText}>SPECTRUM</p>
@@ -208,7 +211,7 @@ function Landing() {
                 </p>
               </div>
             </div>
-            <div className={styles.Banner}>
+            <div className={styles.PrizesBanner}>
               <div className={styles.BannerTextContainer}>
                 <p className={styles.BannerHeadingText}>PRIZES</p>
                 <p className={styles.BannerText}>
@@ -227,8 +230,22 @@ function Landing() {
               </div>
               <img
                 className={styles.BannerImage}
-                src='https://www.cognizance.org.in/Images/Client/event%20image.png'
+                src={PrizesImage}
               />
+            </div>
+            <div className={styles.SpectrumBanner}>
+              <img
+                className={styles.DeliverablesBannerImage}
+                src={DeliverablesImage}
+              />
+              <div className={styles.BannerTextContainer}>
+                <p className={styles.BannerHeadingText}>WHAT WE PROVIDE?</p>
+                <p className={styles.BannerText}>
+                  The article outlines the provisions of the painting competition, including a canvas, art kit, brushes, paints, palettes, and other materials.
+                  The article also highlights the hospitality end arrangements, including refreshments, water bottles, and hostel meals for participants
+                  from outside the Tricity, and the documentation for all participants. All the participants will be provided with all the material, stay, food and refreshments from our end.
+                </p>
+              </div>
             </div>
             <EventDetail />
             <Footer />
