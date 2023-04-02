@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import * as React from 'react';
 import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -17,10 +18,22 @@ import SpectrumLogo from '../../assets/logos/spectrum_white.png';
 import GoogleLoginButton from '../GoogleLogin';
 import userContext from '../../Context/userContext';
 
-const pages = ['Team', 'Developers', 'Contact Us'];
-
 function NavBar() {
   const [user] = React.useContext(userContext);
+  const navigate = useNavigate();
+  const pages = [
+    ['Team', () => navigate('/team')],
+    ['Event', async function () {
+      await navigate('/');
+      document.getElementById("event").scrollIntoView({
+        behavior: 'smooth'
+      })
+    }],
+    ['Contact Us', () =>
+      document.getElementById("footer").scrollIntoView({
+        behavior: 'smooth'
+      })
+    ]];
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -95,9 +108,9 @@ function NavBar() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page[0]} onClick={page[1]}>
                   <Typography textAlign='center' fontFamily='Ubuntu'>
-                    {page}
+                    {page[0]}
                   </Typography>
                 </MenuItem>
               ))}
@@ -134,8 +147,8 @@ function NavBar() {
           >
             {pages.map((page) => (
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
+                key={page[0]}
+                onClick={page[1]}
                 sx={{
                   margin: '0rem',
                   paddingTop: '0.2rem',
@@ -147,7 +160,7 @@ function NavBar() {
                   fontFamily: 'Ubuntu',
                 }}
               >
-                {page}
+                {page[0]}
               </Button>
             ))}
           </Box>

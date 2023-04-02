@@ -1,0 +1,215 @@
+{
+    "Conveners": [{
+        "sid": "19104085",
+        "name": "Richa",
+        "email": "richasabharwal042000@gmail.com",
+        "linkedin": "https://www.linkedin.com/in/richasabharwal/",
+        "instagram": "https://www.instagram.com/richa_sabharwal/",
+        "image": "richa.jpg"
+    }, {
+        "sid": "19102048",
+        "name": "Tushar Garg",
+        "email": "tushargarg.bt19civil@pec.edu.in",
+        "linkedin": "https://www.linkedin.com/in/tushar-garg-pec/",
+        "instagram": "instagram.com/tusharxgarg",
+        "image": "tushar.jpg"
+    }],
+    "Website": [{
+        "sid": "19103028",
+        "name": "Arjun Kathail",
+        "email": "arjunkathail5@gmail.com",
+        "linkedin": "https://www.linkedin.com/in/arjun-kathail/",
+        "instagram": "https://www.instagram.com/arjunkathail/",
+        "image": "arjun.jpg"
+    }, {
+        "sid": "19105007",
+        "name": "Aman Gupta",
+        "email": "guptaaman704@gmail.com",
+        "linkedin": "https://www.linkedin.com/in/amangupta0709",
+        "instagram": "https://instagram.com/amangupta._07",
+        "image": "aman gupta.jpg"
+    }],
+    "Registrations": [{
+        "sid": "19103022",
+        "name": "Sarthak Chauhan",
+        "email": "sarthakchauhan.bt19cse@pec.edu.in",
+        "linkedin": "https://in.linkedin.com/in/sarthak-chauhan-5287b8188",
+        "instagram": "https://www.instagram.com/itsfreeza/",
+        "image": "sarthak.jpg"
+    }, {
+        "sid": "19104028",
+        "name": "Ashlesha",
+        "email": "ashlesha.bt19ele@pec.edu.in",
+        "linkedin": "https://www.linkedin.com/in/ashlesha-dhanjal-a4300b194/",
+        "instagram": "https://www.instagram.com/ashlesha.__/",
+        "image": "ashlesha.jpg"
+    }, {
+        "sid": "19104075",
+        "name": "Muskan Singh",
+        "email": "muskan.bt19ele@pec.edu.in",
+        "linkedin": "https://www.linkedin.com/in/singhmuskan01",
+        "instagram": "https://instagram.com/_immuskan_?igshid=ZDdkNTZiNTM=",
+        "image": "muskan.jpg"
+    }],
+    "Discipline": [{
+            "sid": "19103025",
+            "name": "Anmol kansal",
+            "email": "akansal200@gmail.com",
+            "linkedin": "www.linkedin.com/in/anmolkansal200",
+            "instagram": "https://instagram.com/_anmolkansal?igshid=YmMyMTA2M2Y=",
+            "image": "anmol.jpg"
+        },
+        {
+            "sid": "19108031",
+            "name": "Shubham Mehra",
+            "email": "shubham.bt19meta@pec.edu.in",
+            "linkedin": "https://www.linkedin.com/in/shubham-mehra-10934214b",
+            "instagram": "https://instagram.com/shubham_mehra_4",
+            "image": "shubham.jpg"
+        }
+    ],
+    "Event Coord": [{
+        "sid": "19107018",
+        "name": "Hardik Baweja ",
+        "email": "hardik.baweja1@gmail.com",
+        "linkedin": "www.linkedin.com/in/hardik-baweja-3357591a9",
+        "instagram": "https://instagram.com/hardik.baweja1?igshid=YmMyMTA2M2Y=",
+        "image": "hardik.jpg"
+    }],
+    "Publicity": [{
+        "sid": "19105124",
+        "name": "Kanupriya Thakur",
+        "email": "kanupriya.thakur2000@gmail.com",
+        "linkedin": "http://linkedin.com/in/kanupriya-thakur-9531351b2",
+        "instagram": "https://instagram.com/__kanupriya__?igshid=YmMyMTA2M2Y=",
+        "image": "kanupriya.jpg"
+    }, {
+        "sid": "19105081",
+        "name": "Shivangi",
+        "email": "shivangikanodia00@gmail.com",
+        "linkedin": "https://www.linkedin.com/in/shivangi-kanodia-bb6651196",
+        "instagram": "https://instagram.com/shivangi_22k?igshid=ZDdkNTZiNTM=",
+        "image": "shivangi.jpg"
+    }],
+    "Infra & Logistics": [{
+        "sid": "19104097",
+        "name": "Lavish Singhal",
+        "email": "lavish2801@gmail.com",
+        "linkedin": "https://www.linkedin.com/in/lavish-singhal-4a4200191",
+        "instagram": "https://instagram.com/lavish.2801_?igshid=ZDdkNTZiNTM=",
+        "image": "lavish.jpg"
+    }, {
+        "sid": "19105099",
+        "name": "Aman Sachdeva ",
+        "email": "sachdeva8701@gmail.com",
+        "linkedin": "https://www.linkedin.com/in/amansachdeva8701",
+        "instagram": "https://instagram.com/amannsachdeva?igshid=ZDdkNTZiNTM=",
+        "image": "aman sachdeva.jpg"
+    }],
+    "Content & Media": [{
+        "sid": "19103105",
+        "name": "Ananya Gupta",
+        "email": "ananyagupta.bt19cse@pec.edu.in",
+        "linkedin": "www.linkedin.com/in/ananya-gupta-Porwal",
+        "instagram": "NA",
+        "image": "ananya.jpg"
+    }, {
+        "sid": "19107068",
+        "name": "Saachi Talwar",
+        "email": "saachitalwar06@gmail.com",
+        "linkedin": "https://www.linkedin.com/in/saachi-talwar-1aa6b91a1",
+        "instagram": "https://instagram.com/saachitalwar?igshid=ZDdkNTZiNTM=",
+        "image": "saachi.jpg"
+    }],
+    "Stage Coord": [{
+        "sid": "19101035",
+        "name": "Umyank Aggarwal",
+        "email": "umyankaggarwal.bt19aero@pec.edu.in",
+        "linkedin": "https://www.linkedin.com/in/umyank-aggarwal/",
+        "instagram": "https://www.instagram.com/aggarwal_umyank/",
+        "image": "umyank.jpg"
+    }, {
+        "sid": "19104049",
+        "name": "Satvik Dev",
+        "email": "devsatvik29@gmail.com",
+        "linkedin": "https://www.linkedin.com/in/satvik-dev-b0906318b?trk=contact-info",
+        "instagram": "https://instagram.com/dev.satvik?igshid=YmMyMTA2M2Y=",
+        "image": "satvik.jpg"
+    }],
+    "Printing & Stationary": [{
+        "sid": "19102007",
+        "name": "Akshay Garg",
+        "email": "akshaygarg.bt19civil@pec.edu.in",
+        "linkedin": "https://www.linkedin.com/in/itsakshaygarg",
+        "instagram": "https://instagram.com/itsakshaygarg?igshid=ZDdkNTZiNTM=",
+        "image": "akshay.jpg"
+    }],
+    "Photography & Videography": [{
+        "sid": "19101019",
+        "name": "Yash Samat Karmur",
+        "email": "yashsamatkarmur.bt19aero@pec.edu.in",
+        "linkedin": "NA",
+        "instagram": "https://instagram.com/yashshshh",
+        "image": "yash.jpg"
+    }, {
+        "sid": "19103063",
+        "name": "Jatin Gupta",
+        "email": "guptajatin9939@gmail.com",
+        "linkedin": "https://www.linkedin.com/in/jatin-gupta-74137b191",
+        "instagram": "https://instagram.com/jatin_gupta._?igshid=ZDdkNTZiNTM=",
+        "image": "jatin.jpg"
+    }],
+    "Creative": [{
+        "sid": "19105075",
+        "name": "Abhikaran Singh Sethi ",
+        "email": "sethiabhikaran3@gmail.com",
+        "linkedin": "https://www.linkedin.com/in/abhikaransethi",
+        "instagram": "https://www.instagram.com/sethiabhikaran/",
+        "image": "abhikaran.jpg"
+    }, {
+        "sid": "19102075",
+        "name": "Rajbir Singh",
+        "email": "rajbir343@gmail.com",
+        "linkedin": "https://www.linkedin.com/in/rajbir-singh-3016a21b1/",
+        "instagram": "https://www.instagram.com/rajbir_singh_23/",
+        "image": "rajbir.jpg"
+    }],
+    "Marketing": [{
+        "sid": "19105113",
+        "name": "Ritika Sharma",
+        "email": "semaritika@gmail.com",
+        "linkedin": "linkedin.com/in/ritikasharma0905",
+        "instagram": "NA",
+        "image": "ritika.jpg"
+    }],
+    "Hospitality": [{
+        "sid": "19104022",
+        "name": "Ritvik Sood",
+        "email": "ritviksood2001@gmail.com",
+        "linkedin": "https://www.linkedin.com/in/ritvik-sood-chandigarh",
+        "instagram": "https://instagram.com/ritvik_smood?igshid=ZDdkNTZiNTM=",
+        "image": "ritvik.jpg"
+    }, {
+        "sid": "19109008",
+        "name": "Ayushi Bagga ",
+        "email": "ayushibagga.bt19prod@pec.edu.in",
+        "linkedin": "https://www.linkedin.com/in/ayushi-bagga",
+        "instagram": "NA",
+        "image": "ayushi.jpg"
+    }],
+    "Finance": [{
+        "sid": "19105063",
+        "name": "Shivam Kansal",
+        "email": "shivam.kansal241@gmail.com",
+        "linkedin": "NA",
+        "instagram": "NA",
+        "image": "shivam.jpg"
+    }, {
+        "sid": "19104119",
+        "name": "Harshita Bakshi",
+        "email": "bakshiharshita09@gmail.com",
+        "linkedin": "NA",
+        "instagram": "NA",
+        "image": "harshita.jpg"
+    }]
+}

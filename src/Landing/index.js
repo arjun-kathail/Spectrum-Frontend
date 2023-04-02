@@ -183,7 +183,7 @@ function Landing() {
               setFormData={setFormData}
             />
           )}
-          <div className={styles.aboutUs}>
+          <div id='event' className={styles.aboutUs}>
             <div className={styles.Banner}>
               <img
                 className={styles.BannerImage}

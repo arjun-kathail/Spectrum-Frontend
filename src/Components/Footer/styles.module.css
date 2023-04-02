@@ -10,8 +10,9 @@ a {
   margin-right: 5vw;
   width: 90vw;
   border-top: 3px solid white;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  margin-top: 4rem;
 }
 
 .heading {

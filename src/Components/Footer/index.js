@@ -8,7 +8,7 @@ import styles from './styles.module.css';
 
 const Footer = (props) => {
   return (
-    <div className={styles.container}>
+    <div id='footer' className={styles.container}>
       <div>
         <p className={styles.heading}>Connect with us on:</p>
         <a
