@@ -51,9 +51,9 @@ function EventDetail() {
 
     return (
     
-        <div className={styles.Banner}>
+        <div className={styles.EventDetailContainer}>
             <div className='row'>
-                <p className={styles.BannerHeadingText}>EVENT DETAILS</p>
+                <p className={styles.EventDetailHeading}>EVENT DETAILS</p>
                 <div className={'col-12 col-md-6 col-lg-8 mt-4'} style={{display: "flex", alignItems: "center"}}>
                     <div className={styles.DescriptionSection}>
                     <div className={styles.RoundsNavsContainer}>
@@ -265,7 +265,7 @@ function EventDetail() {
                         <p className={styles.EventDetailDescription}>
                             In this round, the artists will be required to <b>create their paintings on a sheet of paper</b>, with a <b>pre-decided theme</b> to guide their creative process. The theme will be carefully selected to challenge the artists&apos; skills and inspire their creativity. The judges will carefully evaluate each painting, considering factors such as composition, technique, color scheme, and overall impact, before selecting the best paintings to proceed to the final round. The final round of the Spectrum competition will take place on the next day, where the selected paintings will be displayed for all to see.
                         </p>
-                        <h5 onClick={handleOpen} className={styles.ViewMore}>Read more..</h5>
+                        <p onClick={handleOpen} className={styles.ViewMore}>Read more..</p>
                         </div> :
                         <></>
                     }
@@ -275,7 +275,7 @@ function EventDetail() {
                         <p className={styles.EventDetailDescription}>
                             In this round, contestants must demonstrate their ability to quickly and effectively translate a given topic onto <b>canvas</b>. The participants only have a limited amount of time to complete their work, with judges closely observing their every brushstroke. The marks of both rounds will be summed up for finalizing the prizes for the whole event. 
                         </p>
-                        <h5 onClick={handleOpen} className={styles.ViewMore}>Read more..</h5>
+                        <p onClick={handleOpen} className={styles.ViewMore}>Read more..</p>
                         </div> :
                         <></>
                     }

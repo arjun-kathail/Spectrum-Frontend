@@ -1,4 +1,4 @@
-.BannerHeadingText{
+.EventDetailHeading{
     font-size: 2.3rem;
     font-weight: 600;
     background: -webkit-linear-gradient(left, #70e1f5 0%, #ffd194 100%);
@@ -11,7 +11,7 @@
     text-align: center;
 }
 
-.Banner {
+.EventDetailContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -19,7 +19,7 @@
   padding-left: 5vw;
   padding-right: 5vw;
   padding-top: 50px;
-  padding-bottom: 50px;
+  padding-bottom: 100px;
 }
 
 .RoundsNavsContainer {
