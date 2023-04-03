@@ -20,11 +20,13 @@ import EventDetail from '../Components/EventDetail';
 import PrizesImage from '../assets/prizes.png';
 import EventsImage from '../assets/events.png';
 import DeliverablesImage from '../assets/deliverables.png';
+import Modal from 'react-bootstrap/Modal';
 
 function Landing() {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [user, setUser] = useContext(userContext);
   const [formData, setFormData] = useState(null);
+  const [whatWeProvideModalOpen, setWhatWeProvideModalOpen] = useState(false);
 
   useEffect(() => {
     if (user?.token && formData) {
@@ -79,6 +81,14 @@ function Landing() {
         });
     }
   }, [formData]);
+
+  const handleOpen = () => {
+    setWhatWeProvideModalOpen(true);
+  };
+
+  const handleClose = () => {
+    setWhatWeProvideModalOpen(false);
+  };
 
   const getDaysLeft = () => {
     const eventDate = date.parse('29 04 2023 03:30:00 AM', 'DD MM YYYY hh:mm:ss A', true);
@@ -241,15 +251,64 @@ function Landing() {
               <div className={styles.BannerTextContainer}>
                 <p className={styles.BannerHeadingText}>WHAT WE PROVIDE?</p>
                 <p className={styles.BannerText}>
-                  The article outlines the provisions of the painting competition, including a canvas, art kit, brushes, paints, palettes, and other materials.
-                  The article also highlights the hospitality end arrangements, including refreshments, water bottles, and hostel meals for participants
-                  from outside the Tricity, and the documentation for all participants. All the participants will be provided with all the material, stay, food and refreshments from our end.
+                The article outlines the provisions of the painting competition, including a canvas, art kit, brushes, paints, palettes, 
+                and other materials. The article also highlights the hospitality end arrangements, including refreshments, water bottles, 
+                and hostel meals for participants from outside the Tricity, and the documentation for all participants. Read more for exact 
+                details.
                 </p>
+                <p onClick={handleOpen} className={styles.ViewMore}><br></br>Read more..</p>
               </div>
             </div>
             <EventDetail />
             <Footer />
           </div>
+          <Modal  
+            size="xl"
+            aria-labelledby="contained-modal-title-vcenter"
+            className={styles.EventDetailModal}
+            centered  
+            show={whatWeProvideModalOpen} onHide={handleClose}> 
+            <p className={styles.ModalEventDescription}>
+              All the participants will be provided with all the material, stay, food and refreshments from our end.
+              <br></br><br></br>
+              <span className={styles.ModalBoldText}>For Painting Competition</span>
+              <br></br><br></br>
+              The students will be provided with a Canvas of standard size 2.5 ft by 3 ft. and  an Art Kit containing all the essentials. This kit will include the following things:
+              <ul>
+                <li>Brush Kit (6-8 Brushes)</li>
+                <li>Acrylic Paints (Divided)</li>
+                <li>Palettes</li>
+                <li>Water Holding Cups</li>
+                <li>Basic Stationary</li>
+                <li>Black Bold Marker</li>
+                <li>Masking Tape (need-to-use basis)</li>
+                <li>Tools (need-to-use basis) (For example cotton, spatula)</li>
+                <li>Easels aka Wooden Painting Frames (Rental basis)</li>
+              </ul>
+              <span className={styles.ModalBoldText}>Non-Competition</span>
+              <br></br><br></br>
+              From Hospitality end, the following things will be given:
+              <ul>
+                <li>Refreshments for participants on both days</li>
+                <li>Water Bottles (while competition for drinking purposes and for washing the brushes)</li>
+              </ul>
+              For people from outside Tricity:
+              <br></br><br></br>
+              Hostel Meals (Day 1: Dinner; Day 2: Breakfast)
+              <br></br><br></br>
+              Accommodation(1 Night)
+              <br></br><br></br>
+              <span className={styles.ModalBoldText}>Documentation</span>
+              <br></br><br></br>
+              The participants will be provided with the following documents:
+              <ul>
+                <li>Participant ID cards.</li>
+                <li>Certificate of Participation (to all participants)</li>
+                <li>Certificate of Appreciation (to winners)</li>
+                <li>Prizes (6 prizes divided as I, II, III and 3 consolation prizes each)</li>
+              </ul> 
+            </p>    
+          </Modal>
         </div>
       </GradientBackground>
     </div>
