@@ -20,6 +20,15 @@
   margin-bottom: 5vh;
 }
 
+.ViewMore {
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0;
+  margin: 0;
+  border-left: 5px solid rgba(112, 225, 245, 0.5);
+  padding-left: 1vw;
+}
+
 .presentedBy {
   text-align: center;
   padding-top: 3vh;
@@ -258,6 +267,27 @@
 }
 
 .BannerTextBold {
+  font-weight: 600;
+}
+
+.EventDetailModal{
+  color: black;
+  overflow-y: auto;
+  max-height: calc(100vh - 200px);
+  position: absolute;
+  transform: translate(0%, 10%);
+}
+
+.ModalEventDescription {
+  text-align: justify;
+  padding: 2.5rem;
+  background-color: black;
+  color: white;
+  margin-bottom: 0;
+  border-radius: 5px;
+}
+
+.ModalBoldText{
   font-weight: 600;
 }
 
