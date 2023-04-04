@@ -111,6 +111,13 @@
   }
 }
 
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
 .aboutUs {
   width: 100%;
   margin: auto;
@@ -331,7 +338,7 @@
   }
 
   .logos {
-    padding-top: 35vh;
+    padding-top: 28vh;
   }
 
   .logoSeperation {
@@ -359,6 +366,10 @@
   .illustrations img {
     padding-top: 5rem;
     height: 14rem;
+  }
+
+  .buttons {
+    flex-direction: column;
   }
 
   .aboutUs {

@@ -22,18 +22,21 @@ function NavBar() {
   const [user] = React.useContext(userContext);
   const navigate = useNavigate();
   const pages = [
-    ['Team', () => navigate('/team')],
+    ['Team', () => {
+      navigate('/team');
+      handleCloseNavMenu();
+    }],
     ['Event', async function () {
       await navigate('/');
       document.getElementById("event").scrollIntoView({
         behavior: 'smooth'
-      })
+      });
     }],
-    ['Contact Us', () =>
+    ['Contact Us', () => {
       document.getElementById("footer").scrollIntoView({
         behavior: 'smooth'
-      })
-    ]];
+      });
+    }]];
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -75,7 +78,8 @@ function NavBar() {
             component='img'
             alt='Spectrum Logo'
             src={SpectrumLogo}
-            sx={{ height: '1.6rem', display: { xs: 'none', md: 'flex' }, mr: 1 }}
+            onClick={() => navigate('/')}
+            sx={{ height: '1.6rem', display: { xs: 'none', md: 'flex' }, mr: 1, cursor: 'pointer' }}
           />
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -120,7 +124,8 @@ function NavBar() {
             component='img'
             alt='Spectrum Logo'
             src={SpectrumLogo}
-            sx={{ height: '1.4rem', display: { xs: 'flex', md: 'none' } }}
+            onClick={() => navigate('/')}
+            sx={{ height: '1.4rem', display: { xs: 'flex', md: 'none' }, cursor: 'pointer' }}
           />
           <Typography
             variant='h5'

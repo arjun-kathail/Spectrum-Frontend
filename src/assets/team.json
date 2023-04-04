@@ -15,20 +15,37 @@
         "image": "tushar.jpg"
     }],
     "Website": [{
-        "sid": "19103028",
-        "name": "Arjun Kathail",
-        "email": "arjunkathail5@gmail.com",
-        "linkedin": "https://www.linkedin.com/in/arjun-kathail/",
-        "instagram": "https://www.instagram.com/arjunkathail/",
-        "image": "arjun.jpg"
-    }, {
-        "sid": "19105007",
-        "name": "Aman Gupta",
-        "email": "guptaaman704@gmail.com",
-        "linkedin": "https://www.linkedin.com/in/amangupta0709",
-        "instagram": "https://instagram.com/amangupta._07",
-        "image": "aman gupta.jpg"
-    }],
+            "sid": "19103028",
+            "name": "Arjun Kathail",
+            "email": "arjunkathail5@gmail.com",
+            "linkedin": "https://www.linkedin.com/in/arjun-kathail/",
+            "instagram": "https://www.instagram.com/arjunkathail/",
+            "image": "arjun.jpg"
+        }, {
+            "sid": "19103067",
+            "name": "Aman Gupta",
+            "email": "guptaaman704@gmail.com",
+            "linkedin": "https://www.linkedin.com/in/amangupta0709",
+            "instagram": "https://instagram.com/amangupta._07",
+            "image": "aman gupta.jpg"
+        },
+        {
+            "sid": "19105007",
+            "name": "Priyanshu Kaushal",
+            "email": "priyanshu.kaushal2001@gmail.com",
+            "linkedin": "https://www.linkedin.com/in/priyanshu-kaushal",
+            "instagram": "https://www.instagram.com/_priyanshukaushal/",
+            "image": "priyanshu.jpg"
+        },
+        {
+            "sid": "19103072",
+            "name": "Bhavesh Kumar",
+            "email": "bkpassi2017@gmail.com",
+            "linkedin": "https://www.linkedin.com/in/bhavesh-kumar-9ab7061b1/",
+            "instagram": "https://www.instagram.com/iambhavesh_kumar/",
+            "image": "bhavesh.jpg"
+        }
+    ],
     "Registrations": [{
         "sid": "19103022",
         "name": "Sarthak Chauhan",

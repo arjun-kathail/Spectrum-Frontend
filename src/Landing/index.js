@@ -92,6 +92,15 @@ function Landing() {
 
   return (
     <div className={styles.wrapper}>
+      <style>
+        {`
+            .Toastify__toast-body {
+              paddingTop: 0;
+              paddingBottom: 0;
+            }
+          `}
+      </style>
+      <ToastContainer theme='dark' position='bottom-right' autoClose={2000} />
       <GradientBackground>
         <ParticlesBackground />
         <div className={styles.content}>
@@ -116,68 +125,57 @@ function Landing() {
             <div className={styles.eventDates}>29 - 30 April, 2023</div>
             <div className={styles.daysLeft}>{getDaysLeft()}</div>
           </div>
-          <Button
-            variant='contained'
-            disableRipple={user?.user_rounds?.registered_round_one}
-            sx={{
-              color: '#fff',
-              background: user?.user_rounds?.registered_round_one
-                ? '#F9A826'
-                : 'rgba(255, 255, 255, 0)',
-              '&:hover': { background: '#F9A826', border: '', color: '#fff' },
-              display: 'block',
-              margin: 'auto',
-              fontSize: '1.1rem',
-              fontWeight: '600',
-              border: '3px solid #F9A826',
-              cursor: user?.user_rounds?.registered_round_one ? 'default' : 'pointer',
-            }}
-            onClick={() => {
-              if (user) {
-                if (!user.user_rounds?.registered_round_one) setIsFormOpen(true);
-              } else toast.error('You must login first');
-            }}
-          >
-            {user?.user_rounds?.registered_round_one ? <div>&nbsp;&nbsp;Registered&nbsp;&nbsp;&nbsp;</div> : <div>Register Now</div>}
-          </Button>
-          <style>
-            {`
-            .Toastify__toast-body {
-              paddingTop: 0;
-              paddingBottom: 0;
-            }
-          `}
-          </style>
-          <a
-            style={{ textDecoration: 'none' }}
-            href={SpectrumBrochure}
-            download='Spectrum Brochure'
-            target='_blank'
-            rel='noreferrer'
-          >
+          <div className={styles.buttons}>
             <Button
               variant='contained'
               disableRipple={user?.user_rounds?.registered_round_one}
               sx={{
                 color: '#fff',
-                background: 'rgba(255, 255, 255, 0)',
+                background: user?.user_rounds?.registered_round_one
+                  ? '#F9A826'
+                  : 'rgba(255, 255, 255, 0)',
                 '&:hover': { background: '#F9A826', border: '', color: '#fff' },
                 display: 'block',
-                margin: 'auto',
-                marginTop: '10px',
                 fontSize: '1.1rem',
                 fontWeight: '600',
                 border: '3px solid #F9A826',
-                cursor: 'pointer',
+                cursor: user?.user_rounds?.registered_round_one ? 'default !important' : 'pointer',
+              }}
+              onClick={() => {
+                if (user) {
+                  if (!user?.user_rounds?.registered_round_one) setIsFormOpen(true);
+                } else toast.error('You must login first');
               }}
             >
-              <div style={{ display: 'flex', alignItems: 'center' }}>
-                Brochure&nbsp;&nbsp;&nbsp;
-                <DownloadRoundedIcon />
-              </div>
+              {user?.user_rounds?.registered_round_one ? <div>&nbsp;&nbsp;Registered&nbsp;&nbsp;&nbsp;</div> : <div>Register Now</div>}
             </Button>
-          </a>
-          <ToastContainer theme='dark' position='bottom-right' autoClose={2000} />
+            <a
+              style={{ textDecoration: 'none' }}
+              href={SpectrumBrochure}
+              download='Spectrum Brochure'
+              target='_blank'
+              rel='noreferrer'
+            >
+              <Button
+                variant='contained'
+                disableRipple={user?.user_rounds?.registered_round_one}
+                sx={{
+                  color: '#fff',
+                  background: 'rgba(255, 255, 255, 0)',
+                  '&:hover': { background: '#F9A826', border: '', color: '#fff' },
+                  display: 'block',
+                  fontSize: '1.1rem',
+                  fontWeight: '600',
+                  border: '3px solid #F9A826',
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  Brochure&nbsp;&nbsp;&nbsp;
+                  <DownloadRoundedIcon />
+                </div>
+              </Button>
+            </a>
+          </div>
           {user && isFormOpen && (
             <EventRegisterForm
               isFormOpen={isFormOpen}
