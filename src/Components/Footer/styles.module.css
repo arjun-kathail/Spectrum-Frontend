@@ -25,6 +25,12 @@ a:hover {
   margin-top: 5px;
 }
 
+.Contacttext{
+  margin: 0;
+  padding: 0;
+  margin-top: 6px;
+}
+
 .heading {
   margin: 0;
   padding: 0;
@@ -36,6 +42,8 @@ a:hover {
 
 .icon {
   margin: 5px;
+  margin-left: 6px;
+  margin-right: 6px;
   padding-top: 5px;
   color: white;
 }
@@ -52,6 +60,9 @@ a:hover {
   p {
     font-size: 0.8rem;
   }
+  .Contacttext{
+    margin-top: 9px;
+  }
 }
 
 @media (max-width: 500px) {
@@ -67,6 +78,9 @@ a:hover {
 
   p {
     font-size: 0.7rem;
+  }
+  .Contacttext{
+    margin-top: 11px;
   }
 }
 

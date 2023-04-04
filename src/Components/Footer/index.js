@@ -47,8 +47,8 @@ const Footer = (props) => {
       </div>
       <div>
         <p className={styles.heading}>Contact details:</p>
-        <p className={styles.text}>Tushar Garg - 9115670588</p>
-        <p className={styles.text}>Richa Sabharwal - 8284003672</p>
+        <p className={styles.Contacttext}>Tushar Garg - 9115670588</p>
+        <p className={styles.Contacttext}>Richa Sabharwal - 8284003672</p>
       </div>
     </div>
   );
