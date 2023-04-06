@@ -23,6 +23,21 @@ import DeliverablesImage from '../assets/deliverables.png';
 import Modal from 'react-bootstrap/Modal';
 
 function Landing() {
+
+  const str = navigator.userAgent;
+  const instagram = str.indexOf("Instagram");
+  const facebook = str.indexOf("FB");
+
+  if (instagram != -1 || facebook != -1) {
+    toast('Access the site through browser instead of instagram to login', {
+      toastId: 'Instagram browser error',
+      type: 'error',
+      isLoading: false,
+      autoClose: 8000,
+      closeOnClick: true,
+    });
+  }
+
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [user, setUser] = useContext(userContext);
   const [formData, setFormData] = useState(null);
@@ -249,10 +264,10 @@ function Landing() {
               <div className={styles.BannerTextContainer}>
                 <p className={styles.BannerHeadingText}>WHAT WE PROVIDE?</p>
                 <p className={styles.BannerText}>
-                The article outlines the provisions of the painting competition, including a canvas, art kit, brushes, paints, palettes, 
-                and other materials. The article also highlights the hospitality end arrangements, including refreshments, water bottles, 
-                and hostel meals for participants from outside the Tricity, and the documentation for all participants. Read more for exact 
-                details.
+                  The article outlines the provisions of the painting competition, including a canvas, art kit, brushes, paints, palettes,
+                  and other materials. The article also highlights the hospitality end arrangements, including refreshments, water bottles,
+                  and hostel meals for participants from outside the Tricity, and the documentation for all participants. Read more for exact
+                  details.
                 </p>
                 <p onClick={handleOpen} className={styles.ViewMore}><br></br>Read more..</p>
               </div>
@@ -260,12 +275,12 @@ function Landing() {
             <EventDetail />
             <Footer />
           </div>
-          <Modal  
+          <Modal
             size="xl"
             aria-labelledby="contained-modal-title-vcenter"
             className={styles.EventDetailModal}
-            centered  
-            show={whatWeProvideModalOpen} onHide={handleClose}> 
+            centered
+            show={whatWeProvideModalOpen} onHide={handleClose}>
             <p className={styles.ModalEventDescription}>
               All the participants will be provided with all the material, stay, food and refreshments from our end.
               <br></br><br></br>
@@ -304,8 +319,8 @@ function Landing() {
                 <li>Certificate of Participation (to all participants)</li>
                 <li>Certificate of Appreciation (to winners)</li>
                 <li>Prizes (6 prizes divided as I, II, III and 3 consolation prizes each)</li>
-              </ul> 
-            </p>    
+              </ul>
+            </p>
           </Modal>
         </div>
       </GradientBackground>
