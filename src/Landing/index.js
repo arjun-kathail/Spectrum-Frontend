@@ -167,9 +167,10 @@ function Landing() {
                 cursor: user?.user_rounds?.registered_round_one ? 'default !important' : 'pointer',
               }}
               onClick={() => {
-                if (user) {
-                  if (!user?.user_rounds?.registered_round_one) setIsFormOpen(true);
-                } else toast.error('You must login first');
+                // if (user) {
+                //   if (!user?.user_rounds?.registered_round_one) setIsFormOpen(true);
+                // } else toast.error('You must login first');
+                window.open('https://docs.google.com/forms/d/e/1FAIpQLScNMadmxQWdMivCuISOzvkdx3RFFUtRr_DFq90FCuaJv4p6dw/viewform?usp=sf_link', '_blank');
               }}
             >
               {user?.user_rounds?.registered_round_one ? <div>&nbsp;&nbsp;Registered&nbsp;&nbsp;&nbsp;</div> : <div>Register Now</div>}
