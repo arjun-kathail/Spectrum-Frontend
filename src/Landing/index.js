@@ -175,7 +175,10 @@ function Landing() {
                   }}
                   onClick={() => {
                     if (user) {
-                      if (!user?.user_rounds?.registered_round_one) setIsFormOpen(true);
+                      if (!user?.user_rounds?.registered_round_one) {
+                        setIsFormOpen(true);
+                        setIsRegisterModalOpen(false);
+                      }
                     } else toast.error('You must login first');
                   }}
                 >
@@ -196,8 +199,10 @@ function Landing() {
                   }}
                   onClick={() => {
                     if (user) {
-                      if (!user?.user_rounds?.registered_round_one)
+                      if (!user?.user_rounds?.registered_round_one) {
                         window.open('https://docs.google.com/forms/d/e/1FAIpQLScNMadmxQWdMivCuISOzvkdx3RFFUtRr_DFq90FCuaJv4p6dw/viewform?usp=sf_link', '_blank');
+                        setIsRegisterModalOpen(false);
+                      }
                     } else toast.error('You must login first');
                   }}
                 >

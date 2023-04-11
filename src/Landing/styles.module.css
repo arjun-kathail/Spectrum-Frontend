@@ -420,6 +420,19 @@
     height: 5vh;
   }
 
+  .registerModalTitle {
+    font-size: 1.7rem;
+  }
+
+  .registerModalDesc {
+    gap: 0.8rem;
+  }
+
+
+  .registerModalDesc button {
+    font-size: 0.9rem;
+  }
+
   .banner {
     font-size: 1.25rem;
     letter-spacing: 0.4em;
