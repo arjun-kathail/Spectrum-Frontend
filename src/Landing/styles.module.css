@@ -127,6 +127,47 @@
   gap: 1rem;
 }
 
+.registerModal {
+  background-color: rgba(0, 0, 0, 0.05);
+  --bs-modal-bg: rgba(0, 0, 0, 0) !important;
+}
+
+.registerModalContent {
+  border-radius: 1rem;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.registerModalTitle {
+  text-align: center;
+  padding: 1rem;
+  padding-top: 2rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  background: -webkit-linear-gradient(left, #70e1f5 0%, #ffd194 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.registerModalDesc {
+  display: flex;
+  justify-content: center;
+  gap: 1.4rem;
+  padding: 3rem;
+  padding-top: 1rem;
+}
+
+.registerModalDesc>div {
+  font-size: 1.8rem;
+  font-weight: 600;
+  background: -webkit-linear-gradient(left, #70e1f5 0%, #ffd194 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .aboutUs {
   width: 100%;
   margin: auto;
@@ -270,7 +311,7 @@
   font-weight: 600;
 }
 
-.EventDetailModal{
+.EventDetailModal {
   color: black;
   overflow-y: auto;
   max-height: calc(100vh - 200px);
@@ -287,7 +328,7 @@
   border-radius: 5px;
 }
 
-.ModalBoldText{
+.ModalBoldText {
   font-weight: 600;
 }
 

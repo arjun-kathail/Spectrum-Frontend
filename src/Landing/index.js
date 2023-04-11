@@ -21,6 +21,7 @@ import PrizesImage from '../assets/prizes.png';
 import EventsImage from '../assets/events.png';
 import DeliverablesImage from '../assets/deliverables.png';
 import Modal from 'react-bootstrap/Modal';
+import Box from '@mui/material/Box';
 
 function Landing() {
 
@@ -41,6 +42,7 @@ function Landing() {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [user, setUser] = useContext(userContext);
   const [formData, setFormData] = useState(null);
+  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
   const [whatWeProvideModalOpen, setWhatWeProvideModalOpen] = useState(false);
 
   useEffect(() => {
@@ -150,6 +152,60 @@ function Landing() {
             <div className={styles.eventDates}>29 - 30 April, 2023</div>
             <div className={styles.daysLeft}>{getDaysLeft()}</div>
           </div>
+          <Modal
+            aria-labelledby="modal-title" aria-describedby="modal-description"
+            className={styles.registerModal}
+            centered
+            show={isRegisterModalOpen} onHide={() => setIsRegisterModalOpen(false)}
+          >
+            <Box className={styles.registerModalContent}>
+              <div id="modal-title" className={styles.registerModalTitle}>Register through either</div>
+              <div id="modal-description" className={styles.registerModalDesc}>
+                <Button
+                  variant='contained'
+                  sx={{
+                    color: '#fff',
+                    background: 'rgba(255, 255, 255, 0)',
+                    '&:hover': { background: '#F9A826', border: '', color: '#fff' },
+                    display: 'block',
+                    fontSize: '1rem',
+                    fontWeight: '600',
+                    border: '2px solid #F9A826',
+                    cursor: 'pointer',
+                  }}
+                  onClick={() => {
+                    if (user) {
+                      if (!user?.user_rounds?.registered_round_one) setIsFormOpen(true);
+                    } else toast.error('You must login first');
+                  }}
+                >
+                  <div>Website</div>
+                </Button>
+                <div>/</div>
+                <Button
+                  variant='contained'
+                  sx={{
+                    color: '#fff',
+                    background: 'rgba(255, 255, 255, 0)',
+                    '&:hover': { background: '#F9A826', border: '', color: '#fff' },
+                    display: 'block',
+                    fontSize: '1rem',
+                    fontWeight: '600',
+                    border: '2px solid #F9A826',
+                    cursor: 'pointer',
+                  }}
+                  onClick={() => {
+                    if (user) {
+                      if (!user?.user_rounds?.registered_round_one)
+                        window.open('https://docs.google.com/forms/d/e/1FAIpQLScNMadmxQWdMivCuISOzvkdx3RFFUtRr_DFq90FCuaJv4p6dw/viewform?usp=sf_link', '_blank');
+                    } else toast.error('You must login first');
+                  }}
+                >
+                  <div>Google Form</div>
+                </Button>
+              </div>
+            </Box>
+          </Modal>
           <div className={styles.buttons}>
             <Button
               variant='contained'
@@ -167,10 +223,13 @@ function Landing() {
                 cursor: user?.user_rounds?.registered_round_one ? 'default !important' : 'pointer',
               }}
               onClick={() => {
-                // if (user) {
-                //   if (!user?.user_rounds?.registered_round_one) setIsFormOpen(true);
-                // } else toast.error('You must login first');
-                window.open('https://docs.google.com/forms/d/e/1FAIpQLScNMadmxQWdMivCuISOzvkdx3RFFUtRr_DFq90FCuaJv4p6dw/viewform?usp=sf_link', '_blank');
+                if (user) {
+                  if (!user?.user_rounds?.registered_round_one) {
+                    // setIsFormOpen(true);
+                    // window.open('https://docs.google.com/forms/d/e/1FAIpQLScNMadmxQWdMivCuISOzvkdx3RFFUtRr_DFq90FCuaJv4p6dw/viewform?usp=sf_link', '_blank');
+                    setIsRegisterModalOpen(true);
+                  }
+                } else toast.error('You must login first');
               }}
             >
               {user?.user_rounds?.registered_round_one ? <div>&nbsp;&nbsp;Registered&nbsp;&nbsp;&nbsp;</div> : <div>Register Now</div>}
@@ -273,56 +332,56 @@ function Landing() {
                 <p onClick={handleOpen} className={styles.ViewMore}><br></br>Read more..</p>
               </div>
             </div>
+            <Modal
+              size="xl"
+              aria-labelledby="contained-modal-title-vcenter"
+              className={styles.EventDetailModal}
+              centered
+              show={whatWeProvideModalOpen} onHide={handleClose}>
+              <p className={styles.ModalEventDescription}>
+                All the participants will be provided with all the material, stay, food and refreshments from our end.
+                <br></br><br></br>
+                <span className={styles.ModalBoldText}>For Painting Competition</span>
+                <br></br><br></br>
+                The students will be provided with a Canvas of standard size 2.5 ft by 3 ft. and  an Art Kit containing all the essentials. This kit will include the following things:
+                <ul>
+                  <li>Brush Kit (6-8 Brushes)</li>
+                  <li>Acrylic Paints (Divided)</li>
+                  <li>Palettes</li>
+                  <li>Water Holding Cups</li>
+                  <li>Basic Stationary</li>
+                  <li>Black Bold Marker</li>
+                  <li>Masking Tape (need-to-use basis)</li>
+                  <li>Tools (need-to-use basis) (For example cotton, spatula)</li>
+                  <li>Easels aka Wooden Painting Frames (Rental basis)</li>
+                </ul>
+                <span className={styles.ModalBoldText}>Non-Competition</span>
+                <br></br><br></br>
+                From Hospitality end, the following things will be given:
+                <ul>
+                  <li>Refreshments for participants on both days</li>
+                  <li>Water Bottles (while competition for drinking purposes and for washing the brushes)</li>
+                </ul>
+                For people from outside Tricity:
+                <br></br><br></br>
+                Hostel Meals (Day 1: Dinner; Day 2: Breakfast)
+                <br></br><br></br>
+                Accommodation(1 Night)
+                <br></br><br></br>
+                <span className={styles.ModalBoldText}>Documentation</span>
+                <br></br><br></br>
+                The participants will be provided with the following documents:
+                <ul>
+                  <li>Participant ID cards.</li>
+                  <li>Certificate of Participation (to all participants)</li>
+                  <li>Certificate of Appreciation (to winners)</li>
+                  <li>Prizes (6 prizes divided as I, II, III and 3 consolation prizes each)</li>
+                </ul>
+              </p>
+            </Modal>
             <EventDetail />
             <Footer />
           </div>
-          <Modal
-            size="xl"
-            aria-labelledby="contained-modal-title-vcenter"
-            className={styles.EventDetailModal}
-            centered
-            show={whatWeProvideModalOpen} onHide={handleClose}>
-            <p className={styles.ModalEventDescription}>
-              All the participants will be provided with all the material, stay, food and refreshments from our end.
-              <br></br><br></br>
-              <span className={styles.ModalBoldText}>For Painting Competition</span>
-              <br></br><br></br>
-              The students will be provided with a Canvas of standard size 2.5 ft by 3 ft. and  an Art Kit containing all the essentials. This kit will include the following things:
-              <ul>
-                <li>Brush Kit (6-8 Brushes)</li>
-                <li>Acrylic Paints (Divided)</li>
-                <li>Palettes</li>
-                <li>Water Holding Cups</li>
-                <li>Basic Stationary</li>
-                <li>Black Bold Marker</li>
-                <li>Masking Tape (need-to-use basis)</li>
-                <li>Tools (need-to-use basis) (For example cotton, spatula)</li>
-                <li>Easels aka Wooden Painting Frames (Rental basis)</li>
-              </ul>
-              <span className={styles.ModalBoldText}>Non-Competition</span>
-              <br></br><br></br>
-              From Hospitality end, the following things will be given:
-              <ul>
-                <li>Refreshments for participants on both days</li>
-                <li>Water Bottles (while competition for drinking purposes and for washing the brushes)</li>
-              </ul>
-              For people from outside Tricity:
-              <br></br><br></br>
-              Hostel Meals (Day 1: Dinner; Day 2: Breakfast)
-              <br></br><br></br>
-              Accommodation(1 Night)
-              <br></br><br></br>
-              <span className={styles.ModalBoldText}>Documentation</span>
-              <br></br><br></br>
-              The participants will be provided with the following documents:
-              <ul>
-                <li>Participant ID cards.</li>
-                <li>Certificate of Participation (to all participants)</li>
-                <li>Certificate of Appreciation (to winners)</li>
-                <li>Prizes (6 prizes divided as I, II, III and 3 consolation prizes each)</li>
-              </ul>
-            </p>
-          </Modal>
         </div>
       </GradientBackground>
     </div>

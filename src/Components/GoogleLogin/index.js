@@ -44,7 +44,7 @@ const GoogleLoginButton = forwardRef((props, ref) => {
 
   useEffect(() => {
     if (user?.access_token) {
-      const id = toast.loading('Registration in progress');
+      const id = toast.loading('Logging In');
       axios
         .get(`https://www.googleapis.com/oauth2/v1/userinfo?access_token=${user.access_token}`, {
           headers: {
