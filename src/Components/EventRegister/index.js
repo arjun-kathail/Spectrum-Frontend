@@ -71,8 +71,8 @@ class EventRegisterForm extends Component {
     if (!participantName || !participantName.trim()) {
       participantNameError = 'Name must be entered';
       error = true;
-    } else if (!participantAge || participantAge <= 0 || participantAge >= 100) {
-      participantAgeError = 'Age is required in valid format';
+    } else if (!participantAge || participantAge <= 14 || participantAge >= 28) {
+      participantAgeError = 'Age should be in allowed range';
       error = true;
     } else if (!participantPhoneNumber || !participantPhoneNumber.trim()) {
       participantPhoneNumberError = 'Phone Number is required in valid format';
@@ -154,7 +154,7 @@ class EventRegisterForm extends Component {
                 '& .MuiTextField-root': { mt: 1 },
               }}
               autoComplete='off'
-              // onSubmit={() => this.handleRegisterDetailsSubmit()}
+            // onSubmit={() => this.handleRegisterDetailsSubmit()}
             >
               <Grid container spacing={2}>
                 <Grid item xs={8} sm={8} md={10}>
