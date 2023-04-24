@@ -217,27 +217,29 @@ function Landing() {
               disableRipple={user?.user_rounds?.registered_round_one}
               sx={{
                 color: '#fff',
-                background: user?.user_rounds?.registered_round_one
-                  ? '#F9A826'
-                  : 'rgba(255, 255, 255, 0)',
+                // background: user?.user_rounds?.registered_round_one
+                //   ? '#F9A826'
+                //   : 'rgba(255, 255, 255, 0)',
+                background: '#F9A826',
                 '&:hover': { background: '#F9A826', border: '', color: '#fff' },
                 display: 'block',
                 fontSize: '1.1rem',
                 fontWeight: '600',
                 border: '3px solid #F9A826',
-                cursor: user?.user_rounds?.registered_round_one ? 'default !important' : 'pointer',
+                // cursor: user?.user_rounds?.registered_round_one ? 'default !important' : 'pointer',
+                cursor: 'default !important',
               }}
-              onClick={() => {
-                if (user) {
-                  if (!user?.user_rounds?.registered_round_one) {
-                    // setIsFormOpen(true);
-                    // window.open('https://docs.google.com/forms/d/e/1FAIpQLScNMadmxQWdMivCuISOzvkdx3RFFUtRr_DFq90FCuaJv4p6dw/viewform?usp=sf_link', '_blank');
-                    setIsRegisterModalOpen(true);
-                  }
-                } else toast.error('You must login first');
-              }}
+            // onClick={() => {
+            //   if (user) {
+            //     if (!user?.user_rounds?.registered_round_one) {
+            //       // setIsFormOpen(true);
+            //       // window.open('https://docs.google.com/forms/d/e/1FAIpQLScNMadmxQWdMivCuISOzvkdx3RFFUtRr_DFq90FCuaJv4p6dw/viewform?usp=sf_link', '_blank');
+            //       setIsRegisterModalOpen(true);
+            //     }
+            //   } else toast.error('You must login first');
+            // }}
             >
-              {user?.user_rounds?.registered_round_one ? <div>&nbsp;&nbsp;Registered&nbsp;&nbsp;&nbsp;</div> : <div>Register Now</div>}
+              {user?.user_rounds?.registered_round_one ? <div>&nbsp;&nbsp;Registered&nbsp;&nbsp;&nbsp;</div> : <div>Registration Closed</div>}
             </Button>
             <a
               style={{ textDecoration: 'none' }}

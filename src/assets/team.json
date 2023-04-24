@@ -87,11 +87,18 @@
     ],
     "Event Coord": [{
         "sid": "19107018",
-        "name": "Hardik Baweja ",
+        "name": "Hardik Baweja",
         "email": "hardik.baweja1@gmail.com",
         "linkedin": "www.linkedin.com/in/hardik-baweja-3357591a9",
         "instagram": "https://instagram.com/hardik.baweja1?igshid=YmMyMTA2M2Y=",
         "image": "hardik.jpg"
+    }, {
+        "sid": "19107064",
+        "name": "Ujjwal Bansal",
+        "email": "ujjwal.01bansalpkl@gmail.com",
+        "linkedin": "https://www.linkedin.com/in/ujjwalbansal01",
+        "instagram": "https://instagram.com/iamujjwalbansal?igshid=Mzc1MmZhNjY=",
+        "image": "ujjwal.jpg"
     }],
     "Publicity": [{
         "sid": "19105124",
@@ -137,6 +144,12 @@
         "linkedin": "https://www.linkedin.com/in/saachi-talwar-1aa6b91a1",
         "instagram": "https://instagram.com/saachitalwar?igshid=ZDdkNTZiNTM=",
         "image": "saachi.jpg"
+    }, {
+        "sid": "19107021",
+        "name": "Shushant Gambhir",
+        "email": "shushantgambhir.bt19mech@pec.edu.in",
+        "linkedin": "https://www.linkedin.com/in/shushant-gambhir",
+        "image": "shushant.jpg"
     }],
     "Stage Coord": [{
         "sid": "19101035",
@@ -160,6 +173,13 @@
         "linkedin": "https://www.linkedin.com/in/itsakshaygarg",
         "instagram": "https://instagram.com/itsakshaygarg?igshid=ZDdkNTZiNTM=",
         "image": "akshay.jpg"
+    }, {
+        "sid": "19103125",
+        "name": "Aseem Mangla",
+        "email": "aseemmanglap@gmail.com",
+        "linkedin": "https://linkedin.com/in/aseemmangla/",
+        "instagram": "https://instagram.com/mangla_aseem",
+        "image": "aseem.jpg"
     }],
     "Photography & Videography": [{
         "sid": "19101019",
